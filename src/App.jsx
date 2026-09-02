@@ -2,7 +2,7 @@ import { useState } from "react";
 import parishHero from "./assets/Parish_Hero_Banner.png";
 import obanimiLogo from "./assets/ObanimiStudio_App_Brand_Logo.png";
 import hymns from "./data/hymns";
-import bibleLessons from "./data/bibleLessons";
+import bibleLessons from "./data/biblelessons";
 import choirUpdates from "./data/choirUpdates";
 import events from "./data/events";
 import programmes from "./data/programmes";
