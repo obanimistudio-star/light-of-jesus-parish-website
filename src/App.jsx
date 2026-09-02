@@ -1789,7 +1789,7 @@ function App() {
             <h2>🎥 Choir Meeting Room</h2>
 
             <p>
-              Light of Jesus Parish Choir
+              The Light of Jesus Parish Choir
             </p>
 
             <div>
