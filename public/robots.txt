@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://obanimistudio-star.github.io/light-of-jesus-parish-website/sitemap.xml
