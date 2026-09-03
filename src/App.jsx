@@ -54,6 +54,13 @@ function App() {
       schedule: "Open when a meeting is announced",
       link: "https://meet.jit.si/LOJ-Media-Team-5V8R-2026",
     },
+    {
+      name: "Sunday School Room",
+      icon: "🧒🏾",
+      description: "Sunday School teaching, learning and children’s fellowship",
+      schedule: "Open when a meeting is announced",
+      link: "https://meet.jit.si/LOJ-Sunday-School-6N3P-2026",
+    },
   ];
 
   const whatsappLink =
