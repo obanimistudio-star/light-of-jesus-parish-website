@@ -25,43 +25,8 @@ function App() {
   const [lessonMonth, setLessonMonth] = useState("All");
   const [selectedLesson, setSelectedLesson] = useState(null);
 
-  const meetingRooms = [
-    {
-      name: "Choir Room",
-      icon: "🎼",
-      description: "Choir rehearsals and music ministry meetings",
-      schedule: "Saturdays • 2:00 PM",
-      link: "https://meet.jit.si/LightOfJesusParishChoir",
-    },
-    {
-      name: "Women’s Room",
-      icon: "🌸",
-      description: "Women’s fellowship, planning and prayer meetings",
-      schedule: "Open when a meeting is announced",
-      link: "https://meet.jit.si/LOJ-Women-Fellowship-7Q4M-2026",
-    },
-    {
-      name: "Men’s Room",
-      icon: "🛡️",
-      description: "Men’s fellowship, vigil and planning meetings",
-      schedule: "Open when a meeting is announced",
-      link: "https://meet.jit.si/LOJ-Men-Fellowship-9X2K-2026",
-    },
-    {
-      name: "Media Room",
-      icon: "🎬",
-      description: "Media team production and communications meetings",
-      schedule: "Open when a meeting is announced",
-      link: "https://meet.jit.si/LOJ-Media-Team-5V8R-2026",
-    },
-    {
-      name: "Sunday School Room",
-      icon: "🧒🏾",
-      description: "Sunday School teaching, learning and children’s fellowship",
-      schedule: "Open when a meeting is announced",
-      link: "https://meet.jit.si/LOJ-Sunday-School-6N3P-2026",
-    },
-  ];
+  const meetingLink =
+    "https://meet.jit.si/LightOfJesusParishChoir";
 
   const whatsappLink =
     "https://chat.whatsapp.com/EV7GLtRWqyLHFJuypMmiFQ?mode=gi_t";
@@ -98,10 +63,10 @@ function App() {
   // =========================
   // MEETING
   // =========================
-  const copyMeetingLink = async (room) => {
+  const copyMeetingLink = async () => {
     try {
-      await navigator.clipboard.writeText(room.link);
-      alert(`${room.name} link copied.`);
+      await navigator.clipboard.writeText(meetingLink);
+      alert("Meeting link copied.");
     } catch {
       alert("Unable to copy the meeting link.");
     }
@@ -882,72 +847,6 @@ function App() {
           background: white;
         }
 
-        .meeting-room-grid {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 14px;
-          margin-top: 24px;
-        }
-
-        .meeting-room-card {
-          padding: 21px;
-          text-align: left;
-          color: #282330;
-          background: rgba(255, 255, 255, 0.97);
-          border: 1px solid rgba(255, 255, 255, 0.7);
-          border-radius: 18px;
-          box-shadow: 0 13px 32px rgba(28, 13, 48, 0.16);
-        }
-
-        .meeting-room-icon {
-          display: grid;
-          place-items: center;
-          width: 45px;
-          height: 45px;
-          margin-bottom: 12px;
-          background: #fff7d8;
-          border-radius: 14px;
-          font-size: 23px;
-        }
-
-        .meeting-room-card h3 {
-          margin: 0 0 7px;
-          color: #49306f;
-        }
-
-        .meeting-room-card p {
-          min-height: 42px;
-          margin: 0;
-          color: #716979;
-          line-height: 1.45;
-        }
-
-        .meeting-room-schedule {
-          display: block;
-          margin-top: 12px;
-          color: #68449a;
-          font-size: 13px;
-          font-weight: 800;
-        }
-
-        .meeting-room-actions {
-          display: flex;
-          gap: 8px;
-          margin-top: 15px;
-        }
-
-        .meeting-security {
-          max-width: 760px;
-          margin: 18px auto 0;
-          padding: 13px 16px;
-          color: #fff7d8;
-          background: rgba(20, 10, 35, 0.28);
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          border-radius: 13px;
-          font-size: 14px;
-          line-height: 1.5;
-        }
-
         .tips-heading {
           margin: 26px 0 15px;
           text-align: center;
@@ -1544,13 +1443,8 @@ function App() {
           .event-information,
           .search-row,
           .tips-grid,
-          .meeting-room-grid,
           .announcement-grid {
             grid-template-columns: 1fr;
-          }
-
-          .meeting-room-card p {
-            min-height: 0;
           }
         }
 
@@ -1892,40 +1786,56 @@ function App() {
               ● OBANIMISTUDIO LIVE
             </span>
 
-            <h2>🎥 Parish Meeting Rooms</h2>
+            <h2>🎥 Choir Meeting Room</h2>
 
             <p>
-              The Light of Jesus Parish
+              The Light of Jesus Parish Choir
             </p>
 
-            <div className="meeting-room-grid">
-              {meetingRooms.map((room) => (
-                <article className="meeting-room-card" key={room.name}>
-                  <span className="meeting-room-icon">{room.icon}</span>
-                  <h3>{room.name}</h3>
-                  <p>{room.description}</p>
-                  <span className="meeting-room-schedule">{room.schedule}</span>
-                  <div className="meeting-room-actions">
-                    <button
-                      className="meeting-button-gold"
-                      onClick={() => window.open(room.link, "_blank", "noopener,noreferrer")}
-                    >
-                      Join room
-                    </button>
-                    <button
-                      className="meeting-button-light"
-                      onClick={() => copyMeetingLink(room)}
-                    >
-                      Copy link
-                    </button>
-                  </div>
-                </article>
-              ))}
+            <div>
+              <strong>
+                Regular Choir Practice
+              </strong>
+
+              <div className="meeting-time">
+                Every Saturday • 2:00 PM
+              </div>
             </div>
 
-            <p className="meeting-security">
-              🔒 Meeting leaders: join first, then enable the lobby or set a password before inviting participants.
-            </p>
+            <div className="action-row">
+              <button
+                className="meeting-button-gold"
+                onClick={() =>
+                  window.open(
+                    meetingLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                🎥 Join Live Meeting
+              </button>
+
+              <button
+                className="meeting-button-light"
+                onClick={copyMeetingLink}
+              >
+                🔗 Copy Meeting Link
+              </button>
+
+              <button
+                className="meeting-button-light"
+                onClick={() =>
+                  window.open(
+                    whatsappLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                💬 WhatsApp Group
+              </button>
+            </div>
           </div>
 
           <h3 className="tips-heading">
@@ -2528,6 +2438,46 @@ function App() {
                 <div>
                   {programmes.mensVigil.details}
                 </div>
+              </div>
+            )}
+
+            {programmes.mensVigil.orderOfProgramme?.length > 0 && (
+              <div style={{ marginTop: "22px" }}>
+                <h3
+                  style={{
+                    color: colours.deepPurple,
+                    margin: "0 0 12px",
+                    textAlign: "center",
+                  }}
+                >
+                  Order of Programme
+                </h3>
+
+                {programmes.mensVigil.orderOfProgramme.map(
+                  (programmeItem, index) => (
+                    <div
+                      key={`${programmeItem.item}-${index}`}
+                      style={programmeInfoStyle}
+                    >
+                      <strong>{programmeItem.item}</strong>
+                      {programmeItem.title && (
+                        <div>{programmeItem.title}</div>
+                      )}
+                      {programmeItem.person && (
+                        <div>
+                          <strong>Officiating: </strong>
+                          {programmeItem.person}
+                        </div>
+                      )}
+                      {programmeItem.scriptures && (
+                        <div>
+                          <strong>Lead verses: </strong>
+                          {programmeItem.scriptures}
+                        </div>
+                      )}
+                    </div>
+                  )
+                )}
               </div>
             )}
           </div>
