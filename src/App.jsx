@@ -34,6 +34,15 @@ function App() {
   const mensWhatsappLink =
     "https://chat.whatsapp.com/IU5d5Qgm791LRyKDwvNU1a?mode=gi_t";
 
+  const mensMeetingLink =
+    "https://meet.jit.si/LightOfJesusParishMensRoom";
+
+  const womensMeetingLink =
+    "https://meet.jit.si/LightOfJesusParishWomensRoom";
+
+  const mediaMeetingLink =
+    "https://meet.jit.si/LightOfJesusParishMediaRoom";
+
   const colours = {
     purple: "#68449a",
     deepPurple: "#49306f",
@@ -72,6 +81,24 @@ function App() {
       alert("Meeting link copied.");
     } catch {
       alert("Unable to copy the meeting link.");
+    }
+  };
+
+  const copyMensMeetingLink = async () => {
+    try {
+      await navigator.clipboard.writeText(mensMeetingLink);
+      alert("Men's meeting link copied.");
+    } catch {
+      alert("Unable to copy the men's meeting link.");
+    }
+  };
+
+  const copyDepartmentMeetingLink = async (link, department) => {
+    try {
+      await navigator.clipboard.writeText(link);
+      alert(`${department} meeting link copied.`);
+    } catch {
+      alert(`Unable to copy the ${department.toLowerCase()} meeting link.`);
     }
   };
 
@@ -2381,6 +2408,58 @@ function App() {
             spiritual fellowship.
           </p>
 
+          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+            <span className="meeting-live">
+              ● OBANIMISTUDIO LIVE
+            </span>
+
+            <h2>🌙 Men's Meeting Room</h2>
+
+            <p>CCC The Light of Jesus Parish Men's Group</p>
+
+            <div>
+              <strong>Men's Fellowship and Vigil</strong>
+              <div className="meeting-time">
+                Open when a meeting is announced
+              </div>
+            </div>
+
+            <div className="action-row">
+              <button
+                className="meeting-button-gold"
+                onClick={() =>
+                  window.open(
+                    mensMeetingLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                🎥 Join Live Meeting
+              </button>
+
+              <button
+                className="meeting-button-light"
+                onClick={copyMensMeetingLink}
+              >
+                🔗 Copy Meeting Link
+              </button>
+
+              <button
+                className="meeting-button-light"
+                onClick={() =>
+                  window.open(
+                    mensWhatsappLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                💬 Men's WhatsApp Group
+              </button>
+            </div>
+          </div>
+
           <div style={programmeCardStyle}>
             <span className="small-badge">
               MEN'S VIGIL
@@ -2484,21 +2563,6 @@ function App() {
               </div>
             )}
 
-            <div style={{ marginTop: "22px", textAlign: "center" }}>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() =>
-                  window.open(
-                    mensWhatsappLink,
-                    "_blank",
-                    "noopener,noreferrer"
-                  )
-                }
-              >
-                💬 Men's WhatsApp Group
-              </button>
-            </div>
           </div>
         </section>
 
@@ -2511,6 +2575,34 @@ function App() {
             A dedicated space for women of the parish to connect,
             worship, learn, serve and grow together in faith.
           </p>
+
+          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+            <span className="meeting-live">● OBANIMISTUDIO LIVE</span>
+            <h2>👩🏾‍🤝‍👩🏾 Women's Meeting Room</h2>
+            <p>CCC The Light of Jesus Parish Women's Group</p>
+            <div>
+              <strong>Women's Fellowship, Planning and Prayer</strong>
+              <div className="meeting-time">Open when a meeting is announced</div>
+            </div>
+            <div className="action-row">
+              <button
+                className="meeting-button-gold"
+                onClick={() =>
+                  window.open(womensMeetingLink, "_blank", "noopener,noreferrer")
+                }
+              >
+                🎥 Join Live Meeting
+              </button>
+              <button
+                className="meeting-button-light"
+                onClick={() =>
+                  copyDepartmentMeetingLink(womensMeetingLink, "Women's")
+                }
+              >
+                🔗 Copy Meeting Link
+              </button>
+            </div>
+          </div>
 
           <div className="programme-placeholder-grid">
             <div className="programme-placeholder-card">
@@ -2540,6 +2632,34 @@ function App() {
           <p className="section-intro">
             Parish media for worship, teaching, memories and ministry.
           </p>
+
+          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+            <span className="meeting-live">● OBANIMISTUDIO LIVE</span>
+            <h2>🎬 Media Meeting Room</h2>
+            <p>CCC The Light of Jesus Parish Media Team</p>
+            <div>
+              <strong>Media Production and Communications</strong>
+              <div className="meeting-time">Open when a meeting is announced</div>
+            </div>
+            <div className="action-row">
+              <button
+                className="meeting-button-gold"
+                onClick={() =>
+                  window.open(mediaMeetingLink, "_blank", "noopener,noreferrer")
+                }
+              >
+                🎥 Join Live Meeting
+              </button>
+              <button
+                className="meeting-button-light"
+                onClick={() =>
+                  copyDepartmentMeetingLink(mediaMeetingLink, "Media")
+                }
+              >
+                🔗 Copy Meeting Link
+              </button>
+            </div>
+          </div>
 
           <div className="programme-placeholder-grid">
             <div className="programme-placeholder-card">
