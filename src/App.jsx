@@ -1575,7 +1575,7 @@ function App() {
       <nav className="nav-bar">
         {[
           ["home", "🏠", "Home"],
-          ["meeting", "🎥", "Meeting"],
+          ["meeting", "🎤", "Choir"],
           ["hymns", "🎼", "Hymns"],
           ["lessons", "📖", "Bible Lessons"],
           ["events", "📅", "Events"],
@@ -1702,9 +1702,9 @@ function App() {
                   }
                 >
                   <span className="quick-icon">
-                    🎥
+                    🎤
                   </span>
-                  Meeting
+                  Choir
                 </button>
 
                 <button
