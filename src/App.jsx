@@ -43,6 +43,9 @@ function App() {
   const mediaMeetingLink =
     "https://meet.jit.si/LightOfJesusParishMediaRoom";
 
+  const sundaySchoolMeetingLink =
+    "https://meet.jit.si/LightOfJesusParishSundaySchoolRoom";
+
   const colours = {
     purple: "#68449a",
     deepPurple: "#49306f",
@@ -1580,6 +1583,7 @@ function App() {
           ["lessons", "📖", "Bible Lessons"],
           ["events", "📅", "Events"],
           ["bible-class", "📚", "Bible Class"],
+          ["sunday-school", "🧒🏾", "Sunday School"],
           ["mens-vigil", "🌙", "Men's Vigil"],
           ["womens-group", "👩🏾‍🤝‍👩🏾", "Women's Group"],
           ["media", "🎬", "Media"],
@@ -1765,6 +1769,16 @@ function App() {
                     🌙
                   </span>
                   Men's Vigil
+                </button>
+
+                <button
+                  className="quick-card"
+                  onClick={() =>
+                    scrollToSection("sunday-school")
+                  }
+                >
+                  <span className="quick-icon">🧒🏾</span>
+                  Sunday School
                 </button>
 
                 <button
@@ -2392,6 +2406,49 @@ function App() {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+
+        <section id="sunday-school" className="section">
+          <h2 style={sectionTitleStyle}>🧒🏾 Sunday School</h2>
+
+          <p className="section-intro">
+            Bible teaching, learning and Christian fellowship for children.
+          </p>
+
+          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+            <span className="meeting-live">● OBANIMISTUDIO LIVE</span>
+            <h2>🧒🏾 Sunday School Meeting Room</h2>
+            <p>CCC The Light of Jesus Parish Sunday School</p>
+            <div>
+              <strong>Teaching, Learning and Children's Fellowship</strong>
+              <div className="meeting-time">Open when a meeting is announced</div>
+            </div>
+            <div className="action-row">
+              <button
+                className="meeting-button-gold"
+                onClick={() =>
+                  window.open(
+                    sundaySchoolMeetingLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                🎥 Join Live Meeting
+              </button>
+              <button
+                className="meeting-button-light"
+                onClick={() =>
+                  copyDepartmentMeetingLink(
+                    sundaySchoolMeetingLink,
+                    "Sunday School"
+                  )
+                }
+              >
+                🔗 Copy Meeting Link
+              </button>
+            </div>
           </div>
         </section>
 
