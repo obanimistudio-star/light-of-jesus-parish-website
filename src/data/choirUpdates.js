@@ -8,10 +8,10 @@ const choirUpdates = {
   announcements: [
     {
       id: 1,
-      date: "28 August 2026",
-      title: "Choir Rehearsal",
+      date: "4 September 2026",
+      title: "Choir Rehearsal Tomorrow",
       message:
-        "Choir members are reminded to attend our regular Saturday rehearsal at 2:00 PM.",
+        "Choir members are reminded that rehearsal will take place tomorrow, Saturday 5 September 2026, at 2:00 PM in the Choir Meeting Room.",
       priority: "Important",
     },
 

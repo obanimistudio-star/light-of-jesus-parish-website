@@ -12,14 +12,14 @@ const events = [
 
   {
     id: 2,
-    title: "Special Choir Programme",
+    title: "Choir Rehearsal",
     date: "5 September 2026",
     time: "2:00 PM",
-    type: "Special Event",
-    location: "To be confirmed",
+    type: "Rehearsal",
+    location: "Choir Meeting Room",
     description:
-      "Details of this special choir programme will be updated here.",
-    priority: "General",
+      "Regular Saturday choir rehearsal. All choir members are encouraged to join promptly.",
+    priority: "Important",
   },
 
   {
