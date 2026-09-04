@@ -31,6 +31,9 @@ function App() {
   const whatsappLink =
     "https://chat.whatsapp.com/EV7GLtRWqyLHFJuypMmiFQ?mode=gi_t";
 
+  const mensWhatsappLink =
+    "https://chat.whatsapp.com/IU5d5Qgm791LRyKDwvNU1a?mode=gi_t";
+
   const colours = {
     purple: "#68449a",
     deepPurple: "#49306f",
@@ -2480,6 +2483,22 @@ function App() {
                 )}
               </div>
             )}
+
+            <div style={{ marginTop: "22px", textAlign: "center" }}>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() =>
+                  window.open(
+                    mensWhatsappLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                💬 Men's WhatsApp Group
+              </button>
+            </div>
           </div>
         </section>
 
