@@ -20,6 +20,12 @@ const hymns = [
     "lyrics": "English Version\n\nYah Raman Ih Yah Raman\nYah Raman Yah Rah Yah Raman\nOh come unto the Lord\nOh come unto the Lord.  Amen.\n\nYoruba Version\n\nYah rah man, Hi Yah rah man\nYah rah man\nYahman, Yah rah man,\nWa kalo s’odo Oluwa; Oluwa,\nWa kalo s’odo Oluwa           Amin"
   },
   {
+    "number": "4",
+    "title": "Oh Christ, Oh my King",
+    "category": "Kneeling Hymn",
+    "lyrics": "English Version\n\nOh Christ, Oh my King\nI will worship Thee\nMy Power and my Guiding Light\nHoly Thou Holiest.\nAmen\n\nYoruba Version\n\n1. Oh Kristi Oba mi\nEmi yio sin O\nAgbara ati imole mi\nEni mimo mimo julo.\nAmin"
+  },
+  {
     "number": "5",
     "title": "Let us sinners repent from sins,",
     "category": "Forgiveness and Repentance",
