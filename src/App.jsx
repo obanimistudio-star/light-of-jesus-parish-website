@@ -1621,6 +1621,29 @@ function App() {
               </div>
             </div>
 
+            <div className="practice-card">
+              <div className="practice-icon" aria-hidden="true">⛪</div>
+              <h2>Sunday Worship Service</h2>
+              <p>
+                Every Sunday at <strong>10:00 a.m.</strong>
+              </p>
+              <p style={{ marginTop: "8px", fontSize: "15px" }}>
+                Millennium Hall, Church Street, Purton, Swindon SN5 4DT
+              </p>
+              <button
+                style={{ ...secondaryButtonStyle, marginTop: "16px" }}
+                onClick={() =>
+                  window.open(
+                    "https://www.google.com/maps/search/?api=1&query=Millennium+Hall+Church+Street+Purton+Swindon+SN5+4DT",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                📍 Get Directions
+              </button>
+            </div>
+
             <div className="next-event-card">
               <div className="small-overline">
                 NEXT UPCOMING EVENT
@@ -2835,6 +2858,8 @@ function App() {
 
         <div className="footer-contact">
           📍 Millennium Hall, Church St, Purton, Swindon SN5 4DT
+          <br />
+          ⛪ Sunday Worship Service: <strong>10:00 a.m.</strong>
           <br />
           Shepherd in Charge: <strong>VSE Shina Akomolafe</strong>
           {" • "}
