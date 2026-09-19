@@ -7,6 +7,22 @@ import choirUpdates from "./data/choirUpdates";
 import events from "./data/events";
 import programmes from "./data/programmes";
 
+const getClosestLessonMonth = () => {
+  const monthName = new Intl.DateTimeFormat("en-GB", {
+    month: "long",
+  }).format(new Date());
+
+  const availableMonths = [
+    ...new Set(bibleLessons.map((lesson) => lesson.month)),
+  ];
+
+  if (availableMonths.includes(monthName)) {
+    return monthName;
+  }
+
+  return availableMonths[availableMonths.length - 1] || "All";
+};
+
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [siteTheme, setSiteTheme] = useState("dark");
@@ -19,6 +35,13 @@ function App() {
       const target = document.getElementById(sectionId);
       if (target) {
         setActiveSection(sectionId);
+
+        if (sectionId === "lessons") {
+          setSelectedLesson(null);
+          setLessonSearch("");
+          setLessonMonth(getClosestLessonMonth());
+        }
+
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 250);
@@ -38,7 +61,7 @@ function App() {
   // BIBLE LESSONS
   // =========================
   const [lessonSearch, setLessonSearch] = useState("");
-  const [lessonMonth, setLessonMonth] = useState("All");
+  const [lessonMonth, setLessonMonth] = useState(() => getClosestLessonMonth());
   const [selectedLesson, setSelectedLesson] = useState(null);
 
   const meetingLink =
@@ -80,6 +103,13 @@ function App() {
   // =========================
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId);
+
+    if (sectionId === "lessons") {
+      setSelectedLesson(null);
+      setLessonSearch("");
+      setLessonMonth(getClosestLessonMonth());
+    }
+
     window.history.replaceState(null, "", `#${sectionId}`);
 
     setTimeout(() => {
@@ -2927,8 +2957,10 @@ function App() {
 
           <p className="section-intro">
             Celestial Church of Christ Bible Lessons
-            for January to September 2026. Search by
-            date, scripture or service, or select a
+            for January to September 2026. The page
+            opens automatically on the current month,
+            so the nearest lessons are shown first.
+            You can still search or choose another
             month below.
           </p>
 
