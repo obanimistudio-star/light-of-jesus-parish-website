@@ -1659,6 +1659,173 @@ function App() {
         }
 
         /* =========================
+           DARK / COOL READABILITY FIX
+           Keep light information cards light, with strong dark text.
+           ========================= */
+        .theme-dark .programme-card,
+        .theme-cool .programme-card,
+        .theme-dark .event-card,
+        .theme-cool .event-card,
+        .theme-dark .next-event-card,
+        .theme-cool .next-event-card,
+        .theme-dark .lesson-detail,
+        .theme-cool .lesson-detail,
+        .theme-dark .service-group,
+        .theme-cool .service-group,
+        .theme-dark .lesson-preview-box,
+        .theme-cool .lesson-preview-box,
+        .theme-dark .lesson-detail-header,
+        .theme-cool .lesson-detail-header,
+        .theme-dark .notice-card,
+        .theme-cool .notice-card,
+        .theme-dark .announcement-card,
+        .theme-cool .announcement-card,
+        .theme-dark .programme-placeholder-card,
+        .theme-cool .programme-placeholder-card,
+        .theme-dark .list-card,
+        .theme-cool .list-card,
+        .theme-dark .hymn-reader,
+        .theme-cool .hymn-reader,
+        .theme-dark .tip-card,
+        .theme-cool .tip-card,
+        .theme-dark .practice-card,
+        .theme-cool .practice-card,
+        .theme-dark .parish-welcome,
+        .theme-cool .parish-welcome {
+          color: #282330 !important;
+          background: #ffffff !important;
+          border-color: #e6deed !important;
+        }
+
+        .theme-dark .programme-info,
+        .theme-cool .programme-info,
+        .theme-dark .event-info-box,
+        .theme-cool .event-info-box,
+        .theme-dark .next-info,
+        .theme-cool .next-info,
+        .theme-dark .service-reading,
+        .theme-cool .service-reading,
+        .theme-dark .lesson-preview-box,
+        .theme-cool .lesson-preview-box,
+        .theme-dark .lesson-detail-header,
+        .theme-cool .lesson-detail-header {
+          color: #282330 !important;
+          background: #f6f2fa !important;
+        }
+
+        .theme-dark .programme-card h2,
+        .theme-cool .programme-card h2,
+        .theme-dark .programme-card h3,
+        .theme-cool .programme-card h3,
+        .theme-dark .programme-card p,
+        .theme-cool .programme-card p,
+        .theme-dark .programme-card strong,
+        .theme-cool .programme-card strong,
+        .theme-dark .programme-card .programme-info,
+        .theme-cool .programme-card .programme-info,
+        .theme-dark .programme-card .programme-info div,
+        .theme-cool .programme-card .programme-info div,
+        .theme-dark .event-card,
+        .theme-cool .event-card,
+        .theme-dark .event-card h3,
+        .theme-cool .event-card h3,
+        .theme-dark .event-card p,
+        .theme-cool .event-card p,
+        .theme-dark .event-card strong,
+        .theme-cool .event-card strong,
+        .theme-dark .event-card span:not(.status-badge):not(.small-badge),
+        .theme-cool .event-card span:not(.status-badge):not(.small-badge),
+        .theme-dark .next-event-card,
+        .theme-cool .next-event-card,
+        .theme-dark .next-event-card h2,
+        .theme-cool .next-event-card h2,
+        .theme-dark .next-event-card p,
+        .theme-cool .next-event-card p,
+        .theme-dark .next-info,
+        .theme-cool .next-info,
+        .theme-dark .next-info span,
+        .theme-cool .next-info span,
+        .theme-dark .lesson-detail,
+        .theme-cool .lesson-detail,
+        .theme-dark .lesson-detail h2,
+        .theme-cool .lesson-detail h2,
+        .theme-dark .lesson-detail h3,
+        .theme-cool .lesson-detail h3,
+        .theme-dark .lesson-detail p,
+        .theme-cool .lesson-detail p,
+        .theme-dark .service-reading,
+        .theme-cool .service-reading,
+        .theme-dark .service-reading-scripture,
+        .theme-cool .service-reading-scripture,
+        .theme-dark .lesson-preview-box,
+        .theme-cool .lesson-preview-box,
+        .theme-dark .lesson-preview-box span,
+        .theme-cool .lesson-preview-box span,
+        .theme-dark .notice-card,
+        .theme-cool .notice-card,
+        .theme-dark .notice-card h2,
+        .theme-cool .notice-card h2,
+        .theme-dark .notice-card p,
+        .theme-cool .notice-card p,
+        .theme-dark .programme-placeholder-card h3,
+        .theme-cool .programme-placeholder-card h3,
+        .theme-dark .programme-placeholder-card p,
+        .theme-cool .programme-placeholder-card p,
+        .theme-dark .list-card,
+        .theme-cool .list-card,
+        .theme-dark .list-card h3,
+        .theme-cool .list-card h3,
+        .theme-dark .list-card p,
+        .theme-cool .list-card p,
+        .theme-dark .hymn-reader,
+        .theme-cool .hymn-reader,
+        .theme-dark .tip-card,
+        .theme-cool .tip-card,
+        .theme-dark .practice-card,
+        .theme-cool .practice-card,
+        .theme-dark .practice-card p,
+        .theme-cool .practice-card p,
+        .theme-dark .parish-welcome,
+        .theme-cool .parish-welcome,
+        .theme-dark .parish-welcome p,
+        .theme-cool .parish-welcome p {
+          color: #282330 !important;
+          opacity: 1 !important;
+        }
+
+        .theme-dark .programme-info strong,
+        .theme-cool .programme-info strong,
+        .theme-dark .event-info-box strong,
+        .theme-cool .event-info-box strong,
+        .theme-dark .service-reading-label,
+        .theme-cool .service-reading-label,
+        .theme-dark .lesson-preview-box strong,
+        .theme-cool .lesson-preview-box strong {
+          color: #5b3384 !important;
+        }
+
+        .theme-dark .announcement-card.important,
+        .theme-cool .announcement-card.important {
+          color: #2b2205 !important;
+          background: #fff4bf !important;
+          border-color: #d8a900 !important;
+        }
+
+        .theme-dark .announcement-card.important h3,
+        .theme-dark .announcement-card.important p,
+        .theme-dark .announcement-card.important .announcement-top,
+        .theme-cool .announcement-card.important h3,
+        .theme-cool .announcement-card.important p,
+        .theme-cool .announcement-card.important .announcement-top {
+          color: #2b2205 !important;
+        }
+
+        .theme-dark .service-heading,
+        .theme-cool .service-heading {
+          color: #ffffff !important;
+        }
+
+        /* =========================
            DEPARTMENT COLOUR IDENTITY
            ========================= */
         .quick-card {
@@ -2783,7 +2950,7 @@ function App() {
             Bible teaching, study and discussion.
           </p>
 
-          <div style={programmeCardStyle}>
+          <div className="programme-card" style={programmeCardStyle}>
             <span className="small-badge">
               BIBLE CLASS
             </span>
@@ -2797,7 +2964,7 @@ function App() {
               {programmes.bibleClass.title}
             </h2>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>📅 Day / Date</strong>
               <div>
                 {programmes.bibleClass.day ||
@@ -2805,7 +2972,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>🕑 Time</strong>
               <div>
                 {programmes.bibleClass.time ||
@@ -2813,7 +2980,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>💡 Theme / Topic</strong>
               <div>
                 {programmes.bibleClass.theme ||
@@ -2821,7 +2988,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>📖 Bible Text</strong>
               <div>
                 {programmes.bibleClass.bibleText ||
@@ -2829,7 +2996,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>👤 Teacher</strong>
               <div>
                 {programmes.bibleClass.teacher ||
@@ -2838,7 +3005,7 @@ function App() {
             </div>
 
             {programmes.bibleClass.details && (
-              <div style={programmeInfoStyle}>
+              <div className="programme-info" style={programmeInfoStyle}>
                 <strong>📝 Details</strong>
                 <div>
                   {programmes.bibleClass.details}
@@ -2956,7 +3123,7 @@ function App() {
             </div>
           </div>
 
-          <div style={programmeCardStyle}>
+          <div className="programme-card" style={programmeCardStyle}>
             <span className="small-badge">
               MEN'S VIGIL
             </span>
@@ -2970,7 +3137,7 @@ function App() {
               {programmes.mensVigil.title}
             </h2>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>📅 Day / Date</strong>
               <div>
                 {programmes.mensVigil.day ||
@@ -2978,7 +3145,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>🕑 Time</strong>
               <div>
                 {programmes.mensVigil.time ||
@@ -2986,7 +3153,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>💡 Theme / Topic</strong>
               <div>
                 {programmes.mensVigil.theme ||
@@ -2994,7 +3161,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>📖 Bible Text</strong>
               <div>
                 {programmes.mensVigil.bibleText ||
@@ -3002,7 +3169,7 @@ function App() {
               </div>
             </div>
 
-            <div style={programmeInfoStyle}>
+            <div className="programme-info" style={programmeInfoStyle}>
               <strong>👤 Speaker</strong>
               <div>
                 {programmes.mensVigil.speaker ||
@@ -3011,7 +3178,7 @@ function App() {
             </div>
 
             {programmes.mensVigil.details && (
-              <div style={programmeInfoStyle}>
+              <div className="programme-info" style={programmeInfoStyle}>
                 <strong>📝 Details</strong>
                 <div>
                   {programmes.mensVigil.details}
@@ -3035,6 +3202,7 @@ function App() {
                   (programmeItem, index) => (
                     <div
                       key={`${programmeItem.item}-${index}`}
+                      className="programme-info"
                       style={programmeInfoStyle}
                     >
                       <strong>{programmeItem.item}</strong>
