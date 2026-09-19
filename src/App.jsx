@@ -1761,27 +1761,96 @@ function App() {
           background: linear-gradient(135deg,#0b625d,#087d99);
         }
 
-        .nav-meeting.inactive { color:#1554b4; background:#edf4ff; }
-        .nav-bible-class.inactive { color:#6d28d9; background:#f4efff; }
-        .nav-mens-vigil.inactive { color:#14713a; background:#eefbf2; }
-        .nav-womens-group.inactive { color:#a41f50; background:#fff0f5; }
-        .nav-sunday-school.inactive { color:#c45a08; background:#fff5e9; }
-        .nav-media.inactive { color:#0b7782; background:#eafafb; }
+        /* Top navigation mirrors the Quick Access colour identity */
+        .nav-button {
+          min-width: 112px;
+          min-height: 72px;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          border: 1px solid rgba(255,255,255,.16);
+          box-shadow: 0 8px 20px rgba(0,0,0,.12);
+        }
 
-        .theme-dark .nav-meeting.inactive,
-        .theme-dark .nav-bible-class.inactive,
-        .theme-dark .nav-mens-vigil.inactive,
-        .theme-dark .nav-womens-group.inactive,
-        .theme-dark .nav-sunday-school.inactive,
-        .theme-dark .nav-media.inactive,
-        .theme-cool .nav-meeting.inactive,
-        .theme-cool .nav-bible-class.inactive,
-        .theme-cool .nav-mens-vigil.inactive,
-        .theme-cool .nav-womens-group.inactive,
-        .theme-cool .nav-sunday-school.inactive,
-        .theme-cool .nav-media.inactive {
+        .nav-button .nav-icon {
+          font-size: 22px;
+          line-height: 1;
+        }
+
+        .nav-meeting,
+        .nav-bible-class,
+        .nav-mens-vigil,
+        .nav-womens-group,
+        .nav-sunday-school,
+        .nav-media {
+          color: #ffffff !important;
+        }
+
+        .nav-meeting {
+          background: linear-gradient(135deg, #0d3b8c 0%, #1d5fd1 74%, #f2c94c 75%, #f7da69 100%) !important;
+          border-color: #f2c94c !important;
+        }
+
+        .nav-bible-class {
+          background: linear-gradient(135deg, #4b1489, #7c3aed) !important;
+          border-color: #a78bfa !important;
+        }
+
+        .nav-mens-vigil {
+          background: linear-gradient(135deg, #0f5f2f, #17803d) !important;
+          border-color: #4ade80 !important;
+        }
+
+        .nav-womens-group {
+          background: linear-gradient(135deg, #7d163d, #b11f5c) !important;
+          border-color: #fb7185 !important;
+        }
+
+        .nav-sunday-school {
+          background: linear-gradient(135deg, #b45309, #ea7a11) !important;
+          border-color: #fbbf24 !important;
+        }
+
+        .nav-media {
+          background: linear-gradient(135deg, #0f766e, #0891b2) !important;
+          border-color: #5eead4 !important;
+        }
+
+        .nav-home,
+        .nav-hymns,
+        .nav-lessons,
+        .nav-events {
+          color: #5b4673;
+          background: rgba(255,255,255,.92) !important;
+          border-color: rgba(104,68,154,.18) !important;
+        }
+
+        .theme-dark .nav-home,
+        .theme-dark .nav-hymns,
+        .theme-dark .nav-lessons,
+        .theme-dark .nav-events,
+        .theme-cool .nav-home,
+        .theme-cool .nav-hymns,
+        .theme-cool .nav-lessons,
+        .theme-cool .nav-events {
           color: #eef6ff;
-          background: rgba(255,255,255,.07);
+          background: rgba(255,255,255,.07) !important;
+          border-color: rgba(255,255,255,.16) !important;
+        }
+
+        .nav-button.active {
+          transform: translateY(-2px);
+          box-shadow:
+            0 0 0 2px rgba(255,255,255,.8),
+            0 12px 28px rgba(0,0,0,.24);
+        }
+
+        .nav-meeting.active {
+          box-shadow:
+            0 0 0 2px #f2c94c,
+            0 12px 28px rgba(13,59,140,.34);
         }
 
         @media (max-width: 560px) {
