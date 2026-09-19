@@ -7,6 +7,15 @@ const choirUpdates = {
 
   announcements: [
     {
+      id: 3,
+      date: "19 September 2026",
+      title: "Choir Practice Today",
+      message:
+        "Halleluyah Family, a gentle reminder that choir practice is today at 2:00 PM. Please be punctual. God bless. 🙏🎶",
+      priority: "Important",
+    },
+
+    {
       id: 1,
       date: "4 September 2026",
       title: "Choir Rehearsal Tomorrow",
