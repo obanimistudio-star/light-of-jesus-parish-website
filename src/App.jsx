@@ -1158,14 +1158,29 @@ function App() {
 
         .announcement-card {
           padding: 21px;
+          color: #282330;
           background: white;
           border: 1px solid #e6deed;
           border-radius: 19px;
         }
 
+        .announcement-card h3,
+        .announcement-card p,
+        .announcement-card .announcement-top {
+          color: #282330;
+        }
+
         .announcement-card.important {
-          background: #fff9e8;
-          border: 1.5px solid #e6b82e;
+          color: #2b2205;
+          background: #fff4bf;
+          border: 1.5px solid #d8a900;
+          box-shadow: 0 8px 24px rgba(216, 169, 0, 0.16);
+        }
+
+        .announcement-card.important h3,
+        .announcement-card.important p,
+        .announcement-card.important .announcement-top {
+          color: #2b2205;
         }
 
         .announcement-top {
