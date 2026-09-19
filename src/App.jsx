@@ -9,6 +9,7 @@ import programmes from "./data/programmes";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
+  const [siteTheme, setSiteTheme] = useState("dark");
 
   // =========================
   // HYMNS
@@ -445,7 +446,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={`app theme-${siteTheme}`}>
       <style>{`
         * {
           box-sizing: border-box;
@@ -1481,7 +1482,319 @@ function App() {
           }
         }
 
+
+        /* =========================
+           APPEARANCE THEMES
+           ========================= */
+        .theme-settings {
+          position: sticky;
+          top: 0;
+          z-index: 110;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          padding: 9px 14px;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          background: rgba(8, 16, 28, 0.94);
+          backdrop-filter: blur(14px);
+        }
+
+        .theme-label {
+          margin-right: 3px;
+          color: #d8e2ef;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: .35px;
+          text-transform: uppercase;
+        }
+
+        .theme-button {
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 999px;
+          padding: 7px 11px;
+          cursor: pointer;
+          color: #dbe7f4;
+          background: rgba(255,255,255,0.06);
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        .theme-button.selected {
+          color: #101827;
+          background: #f2c94c;
+          border-color: #f2c94c;
+          box-shadow: 0 0 0 3px rgba(242,201,76,.13);
+        }
+
+        .theme-dark {
+          color: #eef5ff;
+          background:
+            radial-gradient(circle at 15% 0%, rgba(29,95,209,.15), transparent 28%),
+            radial-gradient(circle at 85% 8%, rgba(242,201,76,.08), transparent 22%),
+            linear-gradient(180deg, #07111f 0%, #0b1626 100%);
+        }
+
+        .theme-dark body {
+          background: #07111f;
+        }
+
+        .theme-dark .nav-bar {
+          background: rgba(9, 18, 31, 0.94);
+          border-bottom-color: rgba(255,255,255,.08);
+        }
+
+        .theme-dark .nav-button.inactive {
+          color: #d7e5f5;
+          background: rgba(255,255,255,.06);
+        }
+
+        .theme-dark .hero-panel,
+        .theme-dark .practice-card,
+        .theme-dark .list-card,
+        .theme-dark .hymn-reader,
+        .theme-dark .lesson-detail,
+        .theme-dark .tip-card,
+        .theme-dark .programme-placeholder-card {
+          color: #eef5ff;
+          background: rgba(16, 26, 43, .92);
+          border-color: rgba(255,255,255,.09);
+        }
+
+        .theme-dark .quick-access h2,
+        .theme-dark .practice-card h2,
+        .theme-dark .tips-heading {
+          color: #f0ca4f;
+        }
+
+        .theme-dark .quick-access > p,
+        .theme-dark .practice-card p,
+        .theme-dark .section-intro,
+        .theme-dark .hymn-list-category {
+          color: #b9c7d8;
+        }
+
+        .theme-bright {
+          color: #282330;
+          background:
+            radial-gradient(circle at top, rgba(230,184,46,.12), transparent 28%),
+            linear-gradient(180deg, #fffdf7 0%, #f6f8ff 100%);
+        }
+
+        .theme-bright .theme-settings {
+          background: rgba(255,255,255,.96);
+          border-bottom-color: #e5e8ef;
+        }
+
+        .theme-bright .theme-label {
+          color: #5b6575;
+        }
+
+        .theme-bright .theme-button {
+          color: #445064;
+          background: #f4f6fa;
+          border-color: #dfe4ec;
+        }
+
+        .theme-bright .theme-button.selected {
+          color: #2d2504;
+          background: #f2c94c;
+          border-color: #dfb532;
+        }
+
+        .theme-cool {
+          color: #eaf8ff;
+          background:
+            radial-gradient(circle at 20% 0%, rgba(20,184,166,.18), transparent 28%),
+            radial-gradient(circle at 90% 12%, rgba(59,130,246,.16), transparent 24%),
+            linear-gradient(180deg, #071923 0%, #092438 100%);
+        }
+
+        .theme-cool .theme-settings {
+          background: rgba(5, 25, 36, .95);
+        }
+
+        .theme-cool .nav-bar {
+          background: rgba(7, 31, 45, .94);
+          border-bottom-color: rgba(255,255,255,.08);
+        }
+
+        .theme-cool .nav-button.inactive {
+          color: #cdeff5;
+          background: rgba(255,255,255,.06);
+        }
+
+        .theme-cool .hero-panel,
+        .theme-cool .practice-card,
+        .theme-cool .list-card,
+        .theme-cool .hymn-reader,
+        .theme-cool .lesson-detail,
+        .theme-cool .tip-card,
+        .theme-cool .programme-placeholder-card {
+          color: #eaf8ff;
+          background: rgba(8, 38, 53, .91);
+          border-color: rgba(109,220,224,.13);
+        }
+
+        .theme-cool .section-intro,
+        .theme-cool .quick-access > p,
+        .theme-cool .practice-card p {
+          color: #b7dbe2;
+        }
+
+        /* =========================
+           DEPARTMENT COLOUR IDENTITY
+           ========================= */
+        .quick-card {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .quick-card.quick-choir,
+        .quick-card.quick-bible,
+        .quick-card.quick-mens,
+        .quick-card.quick-womens,
+        .quick-card.quick-sunday,
+        .quick-card.quick-media {
+          color: white;
+          border-width: 1px;
+          border-style: solid;
+          box-shadow: 0 12px 27px rgba(0,0,0,.16);
+        }
+
+        .quick-choir {
+          background: linear-gradient(135deg, #0d3b8c 0%, #1d5fd1 74%, #f2c94c 75%, #f7da69 100%) !important;
+          border-color: #f2c94c !important;
+        }
+
+        .quick-bible {
+          background: linear-gradient(135deg, #4b1489, #7c3aed) !important;
+          border-color: #a78bfa !important;
+        }
+
+        .quick-mens {
+          background: linear-gradient(135deg, #0f5f2f, #17803d) !important;
+          border-color: #4ade80 !important;
+        }
+
+        .quick-womens {
+          background: linear-gradient(135deg, #7d163d, #b11f5c) !important;
+          border-color: #fb7185 !important;
+        }
+
+        .quick-sunday {
+          background: linear-gradient(135deg, #b45309, #ea7a11) !important;
+          border-color: #fbbf24 !important;
+        }
+
+        .quick-media {
+          background: linear-gradient(135deg, #0f766e, #0891b2) !important;
+          border-color: #5eead4 !important;
+        }
+
+        .quick-card.quick-choir .quick-icon,
+        .quick-card.quick-bible .quick-icon,
+        .quick-card.quick-mens .quick-icon,
+        .quick-card.quick-womens .quick-icon,
+        .quick-card.quick-sunday .quick-icon,
+        .quick-card.quick-media .quick-icon {
+          width: 46px;
+          height: 46px;
+          margin: 0 auto 8px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          background: rgba(255,255,255,.14);
+        }
+
+        .quick-card.quick-choir .quick-icon {
+          color: #f8d84f;
+          background: rgba(242,201,76,.18);
+        }
+
+        .department-section {
+          position: relative;
+        }
+
+        .department-section::before {
+          content: "";
+          position: absolute;
+          top: 24px;
+          left: 28px;
+          right: 28px;
+          height: 4px;
+          border-radius: 999px;
+          opacity: .9;
+        }
+
+        .choir-section::before { background: linear-gradient(90deg,#1d5fd1,#f2c94c); }
+        .bible-section::before { background: linear-gradient(90deg,#4b1489,#a78bfa); }
+        .mens-section::before { background: linear-gradient(90deg,#0f5f2f,#4ade80); }
+        .womens-section::before { background: linear-gradient(90deg,#7d163d,#fb7185); }
+        .sunday-section::before { background: linear-gradient(90deg,#b45309,#fbbf24); }
+        .media-section::before { background: linear-gradient(90deg,#0f766e,#22d3ee); }
+
+        .choir-meeting-hero {
+          background: linear-gradient(135deg,#0d3b8c 0%,#1d5fd1 72%,#e7b92f 100%);
+        }
+
+        .bible-section > h2 { color: #7c3aed !important; }
+        .mens-section > h2 { color: #17803d !important; }
+        .womens-section > h2 { color: #b11f5c !important; }
+        .sunday-section > h2 { color: #d8660d !important; }
+        .media-section > h2 { color: #0f8a91 !important; }
+
+        .sunday-meeting-hero {
+          background: linear-gradient(135deg,#a84706,#e97812);
+        }
+
+        .mens-meeting-hero {
+          background: linear-gradient(135deg,#0b4d26,#18753a);
+        }
+
+        .womens-meeting-hero {
+          background: linear-gradient(135deg,#731332,#ad2458);
+        }
+
+        .media-meeting-hero {
+          background: linear-gradient(135deg,#0b625d,#087d99);
+        }
+
+        .nav-meeting.inactive { color:#1554b4; background:#edf4ff; }
+        .nav-bible-class.inactive { color:#6d28d9; background:#f4efff; }
+        .nav-mens-vigil.inactive { color:#14713a; background:#eefbf2; }
+        .nav-womens-group.inactive { color:#a41f50; background:#fff0f5; }
+        .nav-sunday-school.inactive { color:#c45a08; background:#fff5e9; }
+        .nav-media.inactive { color:#0b7782; background:#eafafb; }
+
+        .theme-dark .nav-meeting.inactive,
+        .theme-dark .nav-bible-class.inactive,
+        .theme-dark .nav-mens-vigil.inactive,
+        .theme-dark .nav-womens-group.inactive,
+        .theme-dark .nav-sunday-school.inactive,
+        .theme-dark .nav-media.inactive,
+        .theme-cool .nav-meeting.inactive,
+        .theme-cool .nav-bible-class.inactive,
+        .theme-cool .nav-mens-vigil.inactive,
+        .theme-cool .nav-womens-group.inactive,
+        .theme-cool .nav-sunday-school.inactive,
+        .theme-cool .nav-media.inactive {
+          color: #eef6ff;
+          background: rgba(255,255,255,.07);
+        }
+
         @media (max-width: 560px) {
+          .theme-settings {
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+          }
+
+          .theme-label {
+            display: none;
+          }
+
           .top-header {
             padding: 25px 14px 24px;
           }
@@ -1575,6 +1888,25 @@ function App() {
         </div>
       </div>
 
+      <div className="theme-settings" aria-label="Website appearance">
+        <span className="theme-label">Appearance</span>
+        {[
+          ["dark", "🌙", "Dark"],
+          ["bright", "☀️", "Bright"],
+          ["cool", "❄️", "Cool"],
+        ].map(([theme, icon, label]) => (
+          <button
+            key={theme}
+            type="button"
+            className={`theme-button ${siteTheme === theme ? "selected" : ""}`}
+            onClick={() => setSiteTheme(theme)}
+            aria-pressed={siteTheme === theme}
+          >
+            <span aria-hidden="true">{icon}</span> {label}
+          </button>
+        ))}
+      </div>
+
       <nav className="nav-bar">
         {[
           ["home", "🏠", "Home"],
@@ -1591,7 +1923,7 @@ function App() {
           <button
             key={id}
             onClick={() => scrollToSection(id)}
-            className={`nav-button ${
+            className={`nav-button nav-${id} ${
               activeSection === id
                 ? "active"
                 : "inactive"
@@ -1723,7 +2055,7 @@ function App() {
 
               <div className="quick-grid">
                 <button
-                  className="quick-card"
+                  className="quick-card quick-choir"
                   onClick={() =>
                     scrollToSection("meeting")
                   }
@@ -1771,7 +2103,7 @@ function App() {
                 </button>
 
                 <button
-                  className="quick-card"
+                  className="quick-card quick-bible"
                   onClick={() =>
                     scrollToSection("bible-class")
                   }
@@ -1783,7 +2115,7 @@ function App() {
                 </button>
 
                 <button
-                  className="quick-card"
+                  className="quick-card quick-mens"
                   onClick={() =>
                     scrollToSection("mens-vigil")
                   }
@@ -1795,7 +2127,7 @@ function App() {
                 </button>
 
                 <button
-                  className="quick-card"
+                  className="quick-card quick-sunday"
                   onClick={() =>
                     scrollToSection("sunday-school")
                   }
@@ -1805,7 +2137,7 @@ function App() {
                 </button>
 
                 <button
-                  className="quick-card"
+                  className="quick-card quick-womens"
                   onClick={() =>
                     scrollToSection("womens-group")
                   }
@@ -1815,7 +2147,7 @@ function App() {
                 </button>
 
                 <button
-                  className="quick-card"
+                  className="quick-card quick-media"
                   onClick={() =>
                     scrollToSection("media")
                   }
@@ -1846,9 +2178,9 @@ function App() {
 
         <section
           id="meeting"
-          className="section"
+          className="section department-section choir-section"
         >
-          <div className="meeting-hero">
+          <div className="meeting-hero choir-meeting-hero">
             <span className="meeting-live">
               ● OBANIMISTUDIO LIVE
             </span>
@@ -2356,7 +2688,7 @@ function App() {
 
         <section
           id="bible-class"
-          className="section"
+          className="section department-section bible-section"
         >
           <h2 style={sectionTitleStyle}>
             📚 Bible Class
@@ -2432,14 +2764,14 @@ function App() {
           </div>
         </section>
 
-        <section id="sunday-school" className="section">
+        <section id="sunday-school" className="section department-section sunday-section">
           <h2 style={sectionTitleStyle}>🧒🏾 Sunday School</h2>
 
           <p className="section-intro">
             Bible teaching, learning and Christian fellowship for children.
           </p>
 
-          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+          <div className="meeting-hero sunday-meeting-hero" style={{ marginBottom: "28px" }}>
             <span className="meeting-live">● OBANIMISTUDIO LIVE</span>
             <h2>🧒🏾 Sunday School Meeting Room</h2>
             <p>CCC The Light of Jesus Parish Sunday School</p>
@@ -2477,7 +2809,7 @@ function App() {
 
         <section
           id="mens-vigil"
-          className="section"
+          className="section department-section mens-section"
         >
           <h2 style={sectionTitleStyle}>
             🌙 Men's Vigil
@@ -2488,7 +2820,7 @@ function App() {
             spiritual fellowship.
           </p>
 
-          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+          <div className="meeting-hero mens-meeting-hero" style={{ marginBottom: "28px" }}>
             <span className="meeting-live">
               ● OBANIMISTUDIO LIVE
             </span>
@@ -2646,7 +2978,7 @@ function App() {
           </div>
         </section>
 
-        <section id="womens-group" className="section">
+        <section id="womens-group" className="section department-section womens-section">
           <h2 style={sectionTitleStyle}>
             👩🏾‍🤝‍👩🏾 Women's Group
           </h2>
@@ -2656,7 +2988,7 @@ function App() {
             worship, learn, serve and grow together in faith.
           </p>
 
-          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+          <div className="meeting-hero womens-meeting-hero" style={{ marginBottom: "28px" }}>
             <span className="meeting-live">● OBANIMISTUDIO LIVE</span>
             <h2>👩🏾‍🤝‍👩🏾 Women's Meeting Room</h2>
             <p>CCC The Light of Jesus Parish Women's Group</p>
@@ -2704,7 +3036,7 @@ function App() {
           </div>
         </section>
 
-        <section id="media" className="section">
+        <section id="media" className="section department-section media-section">
           <h2 style={sectionTitleStyle}>
             🎬 Media
           </h2>
@@ -2713,7 +3045,7 @@ function App() {
             Parish media for worship, teaching, memories and ministry.
           </p>
 
-          <div className="meeting-hero" style={{ marginBottom: "28px" }}>
+          <div className="meeting-hero media-meeting-hero" style={{ marginBottom: "28px" }}>
             <span className="meeting-live">● OBANIMISTUDIO LIVE</span>
             <h2>🎬 Media Meeting Room</h2>
             <p>CCC The Light of Jesus Parish Media Team</p>
