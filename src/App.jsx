@@ -511,6 +511,32 @@ function App() {
         <p className="event-description">
           {event.description}
         </p>
+
+        {(event.hymns?.length > 0 || event.lessons?.length > 0) && (
+          <div className="event-service-details">
+            {event.hymns?.length > 0 && (
+              <div className="event-service-panel">
+                <h4>🎼 Hymns</h4>
+                {event.hymns.map((hymn) => (
+                  <div key={hymn} className="event-service-line">
+                    {hymn}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {event.lessons?.length > 0 && (
+              <div className="event-service-panel">
+                <h4>📖 Lessons</h4>
+                {event.lessons.map((lesson) => (
+                  <div key={lesson} className="event-service-line">
+                    {lesson}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     );
   };
@@ -1849,6 +1875,43 @@ function App() {
            DARK / COOL READABILITY FIX
            Keep light information cards light, with strong dark text.
            ========================= */
+        .event-service-details {
+          display: grid;
+          grid-template-columns: 1.25fr 0.75fr;
+          gap: 14px;
+          margin-top: 16px;
+        }
+
+        .event-service-panel {
+          padding: 16px;
+          color: #282330;
+          background: #fffaf0;
+          border: 1px solid #ead69a;
+          border-radius: 16px;
+        }
+
+        .event-service-panel h4 {
+          margin: 0 0 10px;
+          color: #49306f;
+          font-size: 17px;
+        }
+
+        .event-service-line {
+          padding: 5px 0;
+          line-height: 1.45;
+          border-bottom: 1px solid rgba(73,48,111,.08);
+        }
+
+        .event-service-line:last-child {
+          border-bottom: 0;
+        }
+
+        @media (max-width: 700px) {
+          .event-service-details {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .theme-dark .programme-card,
         .theme-cool .programme-card,
         .theme-dark .event-card,
