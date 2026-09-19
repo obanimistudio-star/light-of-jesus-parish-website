@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import parishHero from "./assets/Parish_Hero_Banner.png";
 import obanimiLogo from "./assets/ObanimiStudio_App_Brand_Logo.png";
 import hymns from "./data/hymns";
@@ -10,6 +10,21 @@ import programmes from "./data/programmes";
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [siteTheme, setSiteTheme] = useState("dark");
+
+  useEffect(() => {
+    const sectionId = window.location.hash.replace("#", "");
+    if (!sectionId) return;
+
+    const timer = setTimeout(() => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        setActiveSection(sectionId);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 250);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // =========================
   // HYMNS
@@ -65,6 +80,7 @@ function App() {
   // =========================
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId);
+    window.history.replaceState(null, "", `#${sectionId}`);
 
     setTimeout(() => {
       document
@@ -85,6 +101,18 @@ function App() {
       alert("Meeting link copied.");
     } catch {
       alert("Unable to copy the meeting link.");
+    }
+  };
+
+  const copyRehearsalWebsiteLink = async () => {
+    const rehearsalPageLink =
+      "https://obanimistudio-star.github.io/light-of-jesus-parish-website/#meeting";
+
+    try {
+      await navigator.clipboard.writeText(rehearsalPageLink);
+      alert("Choir rehearsal website link copied.");
+    } catch {
+      alert("Unable to copy the choir rehearsal website link.");
     }
   };
 
@@ -819,6 +847,111 @@ function App() {
           display: block;
           margin-bottom: 7px;
           font-size: 23px;
+        }
+
+        .choir-rehearsal-card {
+          margin: 28px auto 0;
+          overflow: hidden;
+          position: relative;
+          padding: 28px;
+          color: #ffffff;
+          text-align: left;
+          border: 1.5px solid #f2c94c;
+          border-radius: 24px;
+          background:
+            radial-gradient(circle at 88% 18%, rgba(255, 220, 89, .28), transparent 22%),
+            linear-gradient(135deg, #0d3b8c 0%, #1857bd 64%, #f2c94c 65%, #f7d85e 100%);
+          box-shadow: 0 16px 34px rgba(13, 59, 140, .24);
+        }
+
+        .choir-rehearsal-card::after {
+          content: "♫";
+          position: absolute;
+          right: 24px;
+          bottom: 12px;
+          color: rgba(255,255,255,.18);
+          font-size: 78px;
+          font-weight: 900;
+          line-height: 1;
+        }
+
+        .choir-rehearsal-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          margin-bottom: 10px;
+          padding: 6px 10px;
+          color: #17213b;
+          background: #f6d756;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: .4px;
+          text-transform: uppercase;
+        }
+
+        .choir-rehearsal-card h2 {
+          margin: 0 0 7px;
+          color: #ffffff;
+          font-size: clamp(26px, 4vw, 36px);
+        }
+
+        .choir-rehearsal-card p {
+          max-width: 660px;
+          margin: 0;
+          color: #eef5ff;
+          font-size: 16px;
+          line-height: 1.65;
+        }
+
+        .choir-rehearsal-time {
+          display: inline-flex;
+          gap: 8px;
+          margin-top: 15px;
+          padding: 9px 13px;
+          color: #10254d;
+          background: rgba(255,255,255,.92);
+          border-radius: 12px;
+          font-weight: 900;
+        }
+
+        .choir-rehearsal-actions {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 18px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .choir-rehearsal-link,
+        .choir-rehearsal-copy {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 46px;
+          padding: 11px 16px;
+          border-radius: 12px;
+          font-weight: 900;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        .choir-rehearsal-link {
+          color: #1b2744;
+          background: #f6d756;
+          border: 1px solid #f6d756;
+        }
+
+        .choir-rehearsal-copy {
+          color: #ffffff;
+          background: rgba(255,255,255,.12);
+          border: 1px solid rgba(255,255,255,.28);
+        }
+
+        .choir-rehearsal-link:hover,
+        .choir-rehearsal-copy:hover {
+          transform: translateY(-1px);
         }
 
         .meeting-hero {
@@ -2295,6 +2428,44 @@ function App() {
                   {choirUpdates.practice.time}
                 </strong>
               </p>
+            </div>
+
+            <div className="choir-rehearsal-card">
+              <span className="choir-rehearsal-eyebrow">
+                🎶 The Light of Jesus Parish Choir
+              </span>
+
+              <h2>Choir Rehearsal</h2>
+
+              <p>
+                Join us for a joyful time of rehearsal, fellowship and
+                preparation as we lift our voices together in worship.
+              </p>
+
+              <div className="choir-rehearsal-time">
+                📅 Every Saturday • 🕑 2:00 PM
+              </div>
+
+              <div className="choir-rehearsal-actions">
+                <a
+                  className="choir-rehearsal-link"
+                  href="#meeting"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection("meeting");
+                  }}
+                >
+                  🎤 Open Choir Rehearsal →
+                </a>
+
+                <button
+                  type="button"
+                  className="choir-rehearsal-copy"
+                  onClick={copyRehearsalWebsiteLink}
+                >
+                  🔗 Copy Rehearsal Website Link
+                </button>
+              </div>
             </div>
 
             <div className="quick-access">
