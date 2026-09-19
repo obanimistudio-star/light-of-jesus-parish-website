@@ -116,6 +116,18 @@ function App() {
     }
   };
 
+  const copyParishPlatformsLink = async () => {
+    const platformsLink =
+      "https://obanimistudio-star.github.io/light-of-jesus-parish-website/#platforms";
+
+    try {
+      await navigator.clipboard.writeText(platformsLink);
+      alert("Parish platforms link copied.");
+    } catch {
+      alert("Unable to copy the parish platforms link.");
+    }
+  };
+
   const copyMensMeetingLink = async () => {
     try {
       await navigator.clipboard.writeText(mensMeetingLink);
@@ -850,18 +862,19 @@ function App() {
         }
 
         .choir-rehearsal-card {
-          margin: 28px auto 0;
+          margin: 30px auto 0;
           overflow: hidden;
           position: relative;
-          padding: 28px;
+          padding: 34px 28px;
           color: #ffffff;
-          text-align: left;
+          text-align: center;
           border: 1.5px solid #f2c94c;
-          border-radius: 24px;
+          border-radius: 30px;
           background:
-            radial-gradient(circle at 88% 18%, rgba(255, 220, 89, .28), transparent 22%),
-            linear-gradient(135deg, #0d3b8c 0%, #1857bd 64%, #f2c94c 65%, #f7d85e 100%);
-          box-shadow: 0 16px 34px rgba(13, 59, 140, .24);
+            radial-gradient(circle at 88% 84%, rgba(246, 211, 72, .30), transparent 25%),
+            radial-gradient(circle at 15% 8%, rgba(255,255,255,.10), transparent 24%),
+            linear-gradient(135deg, #0d3b8c 0%, #1c59bf 52%, #246ee3 100%);
+          box-shadow: 0 18px 38px rgba(13, 59, 140, .28);
         }
 
         .choir-rehearsal-card::after {
@@ -897,50 +910,60 @@ function App() {
         }
 
         .choir-rehearsal-card p {
-          max-width: 660px;
-          margin: 0;
-          color: #eef5ff;
-          font-size: 16px;
+          max-width: 700px;
+          margin: 0 auto;
+          color: #f6f9ff;
+          font-size: 17px;
           line-height: 1.65;
         }
 
         .choir-rehearsal-time {
           display: inline-flex;
           gap: 8px;
-          margin-top: 15px;
-          padding: 9px 13px;
+          margin-top: 18px;
+          padding: 10px 15px;
           color: #10254d;
-          background: rgba(255,255,255,.92);
-          border-radius: 12px;
+          background: rgba(255,255,255,.94);
+          border-radius: 14px;
+          font-size: 17px;
           font-weight: 900;
         }
 
         .choir-rehearsal-actions {
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-          margin-top: 18px;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+          margin-top: 22px;
           position: relative;
           z-index: 1;
         }
 
         .choir-rehearsal-link,
-        .choir-rehearsal-copy {
+        .choir-rehearsal-copy,
+        .choir-platform-link {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          min-height: 46px;
-          padding: 11px 16px;
-          border-radius: 12px;
+          min-height: 58px;
+          padding: 14px 18px;
+          border-radius: 16px;
+          font-size: 17px;
           font-weight: 900;
           text-decoration: none;
           cursor: pointer;
         }
 
-        .choir-rehearsal-link {
+        .choir-platform-link {
           color: #1b2744;
-          background: #f6d756;
-          border: 1px solid #f6d756;
+          background: linear-gradient(135deg, #f2c94c, #ffd95e);
+          border: 1px solid #f2c94c;
+          box-shadow: 0 8px 20px rgba(242,201,76,.24);
+        }
+
+        .choir-rehearsal-link {
+          color: #5a3185;
+          background: #ffffff;
+          border: 1px solid rgba(255,255,255,.94);
         }
 
         .choir-rehearsal-copy {
@@ -950,7 +973,8 @@ function App() {
         }
 
         .choir-rehearsal-link:hover,
-        .choir-rehearsal-copy:hover {
+        .choir-rehearsal-copy:hover,
+        .choir-platform-link:hover {
           transform: translateY(-1px);
         }
 
@@ -2432,21 +2456,33 @@ function App() {
 
             <div className="choir-rehearsal-card">
               <span className="choir-rehearsal-eyebrow">
-                🎶 The Light of Jesus Parish Choir
+                🔔 Choir Reminder
               </span>
 
-              <h2>Choir Rehearsal</h2>
+              <h2>🎶 Choir Practice Today</h2>
 
               <p>
-                Join us for a joyful time of rehearsal, fellowship and
-                preparation as we lift our voices together in worship.
+                Halleluyah Family, this is a gentle reminder that choir
+                practice is today at 2:00 PM. Please be punctual and come
+                prepared. God bless. 🙏🎶
               </p>
 
               <div className="choir-rehearsal-time">
-                📅 Every Saturday • 🕑 2:00 PM
+                📅 Today • 🕑 2:00 PM
               </div>
 
               <div className="choir-rehearsal-actions">
+                <a
+                  className="choir-platform-link"
+                  href="#platforms"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection("platforms");
+                  }}
+                >
+                  🌈 View All Parish Platforms
+                </a>
+
                 <a
                   className="choir-rehearsal-link"
                   href="#meeting"
@@ -2455,20 +2491,20 @@ function App() {
                     scrollToSection("meeting");
                   }}
                 >
-                  🎤 Open Choir Rehearsal →
+                  🎥 Open Choir Meeting Room
                 </a>
 
                 <button
                   type="button"
                   className="choir-rehearsal-copy"
-                  onClick={copyRehearsalWebsiteLink}
+                  onClick={copyParishPlatformsLink}
                 >
-                  🔗 Copy Rehearsal Website Link
+                  🔗 Copy Parish Website Link
                 </button>
               </div>
             </div>
 
-            <div className="quick-access">
+            <div id="platforms" className="quick-access">
               <h2>Quick Access</h2>
 
               <p>
