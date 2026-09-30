@@ -3020,7 +3020,7 @@ function App() {
 
           <p className="section-intro">
             Celestial Church of Christ Bible Lessons
-            for January to September 2026. The page
+            for January to December 2026. The page
             opens automatically on the current month,
             so the nearest lessons are shown first.
             You can still search or choose another
