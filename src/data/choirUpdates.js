@@ -14,7 +14,7 @@ const choirUpdates = {
   },
 
   weeklyVerse: {
-    title: "Weekly Bible Verse",
+    title: "Bible Verse",
     verse:
       "Serve the LORD with gladness: come before his presence with singing.",
     reference: "Psalm 100:2",
