@@ -2415,6 +2415,7 @@ function App() {
           ["hymns", "🎼", "Hymns"],
           ["lessons", "📖", "Bible Lessons"],
           ["events", "📅", "Events"],
+          ["archive", "🗂️", "Archive"],
           ["bible-class", "📚", "Bible Class"],
           ["sunday-school", "🧒🏾", "Sunday School"],
           ["mens-vigil", "🌙", "Men's Vigil"],
@@ -2547,56 +2548,6 @@ function App() {
               </p>
             </div>
 
-            <div className="choir-rehearsal-card">
-              <span className="choir-rehearsal-eyebrow">
-                🔔 Choir Reminder
-              </span>
-
-              <h2>🎶 Choir Practice Today</h2>
-
-              <p>
-                Halleluyah Family, this is a gentle reminder that choir
-                practice is today at 2:00 PM. Please be punctual and come
-                prepared. God bless. 🙏🎶
-              </p>
-
-              <div className="choir-rehearsal-time">
-                📅 Today • 🕑 2:00 PM
-              </div>
-
-              <div className="choir-rehearsal-actions">
-                <a
-                  className="choir-platform-link"
-                  href="#platforms"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    scrollToSection("platforms");
-                  }}
-                >
-                  🌈 View All Parish Platforms
-                </a>
-
-                <a
-                  className="choir-rehearsal-link"
-                  href="#meeting"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    scrollToSection("meeting");
-                  }}
-                >
-                  🎥 Open Choir Meeting Room
-                </a>
-
-                <button
-                  type="button"
-                  className="choir-rehearsal-copy"
-                  onClick={copyParishPlatformsLink}
-                >
-                  🔗 Copy Parish Website Link
-                </button>
-              </div>
-            </div>
-
             <div id="platforms" className="quick-access">
               <h2>Quick Access</h2>
 
@@ -2651,6 +2602,18 @@ function App() {
                     📅
                   </span>
                   Events
+                </button>
+
+                <button
+                  className="quick-card"
+                  onClick={() =>
+                    scrollToSection("archive")
+                  }
+                >
+                  <span className="quick-icon">
+                    🗂️
+                  </span>
+                  Archive
                 </button>
 
                 <button
@@ -3213,30 +3176,120 @@ function App() {
           </h2>
 
           <p className="section-intro">
-            Keep up to date with parish programmes, rehearsals,
-            worship and special events.
+            Current and upcoming parish programmes, rehearsals,
+            worship services and special events will appear here.
           </p>
 
           {upcomingEvents.length > 0 ? (
             upcomingEvents.map(renderEventCard)
           ) : (
-            <p className="section-intro">
-              There are currently no upcoming
-              events.
-            </p>
+            <div className="notice-card">
+              <div style={{ fontSize: "32px" }}>📅</div>
+              <h2>No current event announcement</h2>
+              <p>
+                New event information will be published here as soon
+                as it is confirmed.
+              </p>
+            </div>
           )}
+        </section>
+
+        <section
+          id="archive"
+          className="section"
+        >
+          <h2 style={sectionTitleStyle}>
+            🗂️ Parish Archive
+          </h2>
+
+          <p className="section-intro">
+            Completed services, past events, vigils and parish
+            programmes are preserved here for reference.
+          </p>
 
           {completedEvents.length > 0 && (
             <div className="past-events">
-              <h2>
-                🕘 Past / Completed Events
-              </h2>
-
-              {completedEvents.map(
-                renderEventCard
-              )}
+              <h2>📅 Completed Events & Services</h2>
+              {completedEvents.map(renderEventCard)}
             </div>
           )}
+
+          {programmes.archive?.length > 0 && (
+            <div style={{ marginTop: "34px" }}>
+              <h2 style={{ textAlign: "center", color: colours.deepPurple }}>
+                🌙 Past Programmes & Vigils
+              </h2>
+
+              {programmes.archive.map((programme, index) => (
+                <div
+                  key={`${programme.title}-${index}`}
+                  className="programme-card"
+                  style={{ ...programmeCardStyle, marginTop: "18px" }}
+                >
+                  <span className="small-badge">
+                    {programme.type || "PAST PROGRAMME"}
+                  </span>
+
+                  <h2 style={{ color: colours.purple, marginTop: "15px" }}>
+                    {programme.title}
+                  </h2>
+
+                  {programme.day && (
+                    <div className="programme-info" style={programmeInfoStyle}>
+                      <strong>📅 Day / Date</strong>
+                      <div>{programme.day}</div>
+                    </div>
+                  )}
+
+                  {programme.time && (
+                    <div className="programme-info" style={programmeInfoStyle}>
+                      <strong>🕑 Time</strong>
+                      <div>{programme.time}</div>
+                    </div>
+                  )}
+
+                  {programme.theme && (
+                    <div className="programme-info" style={programmeInfoStyle}>
+                      <strong>💡 Theme / Topic</strong>
+                      <div>{programme.theme}</div>
+                    </div>
+                  )}
+
+                  {programme.bibleText && (
+                    <div className="programme-info" style={programmeInfoStyle}>
+                      <strong>📖 Bible Text</strong>
+                      <div>{programme.bibleText}</div>
+                    </div>
+                  )}
+
+                  {programme.speaker && (
+                    <div className="programme-info" style={programmeInfoStyle}>
+                      <strong>👤 Speaker</strong>
+                      <div>{programme.speaker}</div>
+                    </div>
+                  )}
+
+                  {programme.details && (
+                    <div className="programme-info" style={programmeInfoStyle}>
+                      <strong>📝 Details</strong>
+                      <div>{programme.details}</div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {completedEvents.length === 0 &&
+            !programmes.archive?.length && (
+              <div className="notice-card">
+                <h2>Archive ready</h2>
+                <p>
+                  Past flyers, rotas and programmes will appear here
+                  when they are added.
+                </p>
+              </div>
+            )}
         </section>
 
         <section
@@ -3425,110 +3478,13 @@ function App() {
             </div>
           </div>
 
-          <div className="programme-card" style={programmeCardStyle}>
-            <span className="small-badge">
-              MEN'S VIGIL
-            </span>
-
-            <h2
-              style={{
-                color: colours.purple,
-                marginTop: "15px",
-              }}
-            >
-              {programmes.mensVigil.title}
-            </h2>
-
-            <div className="programme-info" style={programmeInfoStyle}>
-              <strong>📅 Day / Date</strong>
-              <div>
-                {programmes.mensVigil.day ||
-                  "To be updated"}
-              </div>
-            </div>
-
-            <div className="programme-info" style={programmeInfoStyle}>
-              <strong>🕑 Time</strong>
-              <div>
-                {programmes.mensVigil.time ||
-                  "To be updated"}
-              </div>
-            </div>
-
-            <div className="programme-info" style={programmeInfoStyle}>
-              <strong>💡 Theme / Topic</strong>
-              <div>
-                {programmes.mensVigil.theme ||
-                  "To be updated"}
-              </div>
-            </div>
-
-            <div className="programme-info" style={programmeInfoStyle}>
-              <strong>📖 Bible Text</strong>
-              <div>
-                {programmes.mensVigil.bibleText ||
-                  "To be updated"}
-              </div>
-            </div>
-
-            <div className="programme-info" style={programmeInfoStyle}>
-              <strong>👤 Speaker</strong>
-              <div>
-                {programmes.mensVigil.speaker ||
-                  "To be updated"}
-              </div>
-            </div>
-
-            {programmes.mensVigil.details && (
-              <div className="programme-info" style={programmeInfoStyle}>
-                <strong>📝 Details</strong>
-                <div>
-                  {programmes.mensVigil.details}
-                </div>
-              </div>
-            )}
-
-            {programmes.mensVigil.orderOfProgramme?.length > 0 && (
-              <div style={{ marginTop: "22px" }}>
-                <h3
-                  style={{
-                    color: colours.deepPurple,
-                    margin: "0 0 12px",
-                    textAlign: "center",
-                  }}
-                >
-                  Order of Programme
-                </h3>
-
-                {programmes.mensVigil.orderOfProgramme.map(
-                  (programmeItem, index) => (
-                    <div
-                      key={`${programmeItem.item}-${index}`}
-                      className="programme-info"
-                      style={programmeInfoStyle}
-                    >
-                      <strong>{programmeItem.item}</strong>
-                      {programmeItem.title && (
-                        <div>{programmeItem.title}</div>
-                      )}
-                      {programmeItem.person && (
-                        <div>
-                          <strong>Officiating: </strong>
-                          {programmeItem.person}
-                        </div>
-                      )}
-                      {programmeItem.scriptures && (
-                        <div>
-                          <strong>Lead verses: </strong>
-                          {programmeItem.scriptures}
-                        </div>
-                      )}
-                    </div>
-                  )
-                )}
-              </div>
-            )}
-
+          <div className="notice-card">
+            <div style={{ fontSize: "32px" }}>🌙</div>
+            <h2>Next Men&apos;s Vigil Programme</h2>
+            <p>
+              The next programme will be published here as soon as
+              the date, theme and speakers are confirmed.
+            </p>
           </div>
         </section>
 
@@ -3656,39 +3612,38 @@ function App() {
             Important information and choir updates.
           </p>
 
-          <div className="announcement-grid">
-            {choirUpdates.announcements.map(
-              (announcement) => (
+          {choirUpdates.announcements.length > 0 ? (
+            <div className="announcement-grid">
+              {choirUpdates.announcements.map((announcement) => (
                 <div
                   key={announcement.id}
                   className={`announcement-card ${
-                    announcement.priority ===
-                    "Important"
+                    announcement.priority === "Important"
                       ? "important"
                       : ""
                   }`}
                 >
                   <div className="announcement-top">
-                    <span>
-                      📅 {announcement.date}
-                    </span>
-
+                    <span>📅 {announcement.date}</span>
                     <span className="small-badge">
                       {announcement.priority}
                     </span>
                   </div>
-
-                  <h3>
-                    {announcement.title}
-                  </h3>
-
-                  <p>
-                    {announcement.message}
-                  </p>
+                  <h3>{announcement.title}</h3>
+                  <p>{announcement.message}</p>
                 </div>
-              )
-            )}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="notice-card">
+              <div style={{ fontSize: "32px" }}>📢</div>
+              <h2>No current announcement</h2>
+              <p>
+                New choir information will be published here when
+                it is confirmed.
+              </p>
+            </div>
+          )}
         </section>
 
         <section className="section">
