@@ -1,12 +1,12 @@
 // CCC WORLDWIDE BIBLE LESSONS - 2026
-// January to September
+// January to December
 //
 // Structured for the Light of Jesus Parish Choir platform.
 // Standard service times used:
 // Wednesday - 6PM
 // Friday - 6PM
 // Sunday Morning - 10AM
-// Sunday Evening - 6PM
+// Sunday Evening - 6PM or 7PM as published
 // New Moon - 10PM
 //
 // Special-service times are preserved where specifically provided.
@@ -2031,6 +2031,559 @@ const bibleLessons = [
       reading("6PM", "1st Lesson", "Job 1:1–12"),
     ],
   }),
+
+  // =====================================================
+  // OCTOBER 2026
+  // =====================================================
+
+  makeLesson({
+    id: "OCT-01",
+    date: "2026-10-01",
+    displayDate: "Thursday 1st October 2026",
+    day: "Thursday",
+    month: "October",
+    special: "New Moon Service",
+    readings: [
+      reading("10PM", "1st Lesson", "Genesis 3:1–7", "New Moon Service"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-02",
+    date: "2026-10-02",
+    displayDate: "Friday 2nd October 2026",
+    day: "Friday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "Exodus 32:1–8"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-04",
+    date: "2026-10-04",
+    displayDate: "Sunday 4th October 2026",
+    day: "Sunday",
+    month: "October",
+    special: "Adult Harvest — Porto-Novo",
+    readings: [
+      reading("10AM", "1st Lesson", "Ezekiel 28:12–19", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "John 8:42–49", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Ezekiel 14:1–8", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-07",
+    date: "2026-10-07",
+    displayDate: "Wednesday 7th October 2026",
+    day: "Wednesday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "Jude 1:4–11"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-09",
+    date: "2026-10-09",
+    displayDate: "Friday 9th October 2026",
+    day: "Friday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "Luke 4:1–13"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-11",
+    date: "2026-10-11",
+    displayDate: "Sunday 11th October 2026",
+    day: "Sunday",
+    month: "October",
+    readings: [
+      reading("10AM", "1st Lesson", "Numbers 16:1–14", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "2 Thessalonians 2:3–10", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Revelation 5:1–5", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-14",
+    date: "2026-10-14",
+    displayDate: "Wednesday 14th October 2026",
+    day: "Wednesday",
+    month: "October",
+    special: "Service of Songs — Papa Oshoffa",
+    readings: [
+      reading("6PM", "1st Lesson", "Nehemiah 4:1–11", "Service of Songs — Papa Oshoffa"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-16",
+    date: "2026-10-16",
+    displayDate: "Friday 16th October 2026",
+    day: "Friday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "Matthew 15:10–20"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-18",
+    date: "2026-10-18",
+    displayDate: "Sunday 18th October 2026",
+    day: "Sunday",
+    month: "October",
+    readings: [
+      reading("10AM", "1st Lesson", "Zechariah 3:1–8", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "Revelation 12:7–12", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Ecclesiastes 3:16–22", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-19",
+    date: "2026-10-19",
+    displayDate: "Monday 19th October 2026",
+    day: "Monday",
+    month: "October",
+    special: "Remembrance of the Founder",
+    readings: [
+      reading("10AM", "1st Lesson", "Job 19:23–29", "Remembrance of the Founder"),
+      reading("10AM", "2nd Lesson", "1 Corinthians 3:9–15", "Remembrance of the Founder"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-21",
+    date: "2026-10-21",
+    displayDate: "Wednesday 21st October 2026",
+    day: "Wednesday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "1 Chronicles 21:1–10"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-23",
+    date: "2026-10-23",
+    displayDate: "Friday 23rd October 2026",
+    day: "Friday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "Matthew 16:21–28"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-25",
+    date: "2026-10-25",
+    displayDate: "Sunday 25th October 2026",
+    day: "Sunday",
+    month: "October",
+    readings: [
+      reading("10AM", "1st Lesson", "Job 2:1–10", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "Acts 5:1–6", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Luke 8:11–14", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-28",
+    date: "2026-10-28",
+    displayDate: "Wednesday 28th October 2026",
+    day: "Wednesday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "Mark 15:14–20"),
+    ],
+  }),
+
+  makeLesson({
+    id: "OCT-30",
+    date: "2026-10-30",
+    displayDate: "Friday 30th October 2026",
+    day: "Friday",
+    month: "October",
+    readings: [
+      reading("6PM", "1st Lesson", "1 Peter 5:1–10"),
+    ],
+  }),
+
+  // =====================================================
+  // NOVEMBER 2026
+  // =====================================================
+
+  makeLesson({
+    id: "NOV-01",
+    date: "2026-11-01",
+    displayDate: "Sunday 1st November 2026",
+    day: "Sunday",
+    month: "November",
+    readings: [
+      reading("10AM", "1st Lesson", "2 Kings 23:4–9", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "Ephesians 4:17–32", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "James 4:5–10", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-04",
+    date: "2026-11-04",
+    displayDate: "Wednesday 4th November 2026",
+    day: "Wednesday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "Genesis 3:1–7"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-05",
+    date: "2026-11-05",
+    displayDate: "Thursday 5th November 2026",
+    day: "Thursday",
+    month: "November",
+    special: "New Moon Service",
+    readings: [
+      reading("10PM", "1st Lesson", "Genesis 2:14–20", "New Moon Service"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-06",
+    date: "2026-11-06",
+    displayDate: "Friday 6th November 2026",
+    day: "Friday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "2 Kings 4:38–41"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-08",
+    date: "2026-11-08",
+    displayDate: "Sunday 8th November 2026",
+    day: "Sunday",
+    month: "November",
+    readings: [
+      reading("10AM", "1st Lesson", "Genesis 3:9–19", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "1 Corinthians 15:51–56", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Romans 7:2–11", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-11",
+    date: "2026-11-11",
+    displayDate: "Wednesday 11th November 2026",
+    day: "Wednesday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "Proverbs 20:17–22"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-13",
+    date: "2026-11-13",
+    displayDate: "Friday 13th November 2026",
+    day: "Friday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "Proverbs 5:1–6"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-15",
+    date: "2026-11-15",
+    displayDate: "Sunday 15th November 2026",
+    day: "Sunday",
+    month: "November",
+    special: "Adult Harvest — Arch-Dioc. Ketu",
+    readings: [
+      reading("10AM", "1st Lesson", "Proverbs 13:11–15", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "1 Timothy 6:4–11", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Deuteronomy 28:15–22", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-18",
+    date: "2026-11-18",
+    displayDate: "Wednesday 18th November 2026",
+    day: "Wednesday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "Romans 6:19–23"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-20",
+    date: "2026-11-20",
+    displayDate: "Friday 20th November 2026",
+    day: "Friday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "Job 20:1–16"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-22",
+    date: "2026-11-22",
+    displayDate: "Sunday 22nd November 2026",
+    day: "Sunday",
+    month: "November",
+    special: "CCC City of the Living God Harvest",
+    readings: [
+      reading("10AM", "1st Lesson", "1 Samuel 25:32–38", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "Romans 1:24–32", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Psalms 10:4–15", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-25",
+    date: "2026-11-25",
+    displayDate: "Wednesday 25th November 2026",
+    day: "Wednesday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "Mark 5:37–43"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-27",
+    date: "2026-11-27",
+    displayDate: "Friday 27th November 2026",
+    day: "Friday",
+    month: "November",
+    readings: [
+      reading("6PM", "1st Lesson", "2 Kings 4:32–37"),
+    ],
+  }),
+
+  makeLesson({
+    id: "NOV-29",
+    date: "2026-11-29",
+    displayDate: "Sunday 29th November 2026",
+    day: "Sunday",
+    month: "November",
+    readings: [
+      reading("10AM", "1st Lesson", "Psalms 51:1–9", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "1 Corinthians 15:51–58", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "1 Corinthians 15:21–28", "Sunday Evening"),
+    ],
+  }),
+
+  // =====================================================
+  // DECEMBER 2026
+  // =====================================================
+
+  makeLesson({
+    id: "DEC-02",
+    date: "2026-12-02",
+    displayDate: "Wednesday 2nd December 2026",
+    day: "Wednesday",
+    month: "December",
+    readings: [
+      reading("6PM", "1st Lesson", "Genesis 49:8–12"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-03",
+    date: "2026-12-03",
+    displayDate: "Thursday 3rd December 2026",
+    day: "Thursday",
+    month: "December",
+    special: "New Moon Service",
+    readings: [
+      reading("10PM", "1st Lesson", "Exodus 3:14–21", "New Moon Service"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-04",
+    date: "2026-12-04",
+    displayDate: "Friday 4th December 2026",
+    day: "Friday",
+    month: "December",
+    readings: [
+      reading("6PM", "1st Lesson", "Deuteronomy 14:8–20"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-06",
+    date: "2026-12-06",
+    displayDate: "Sunday 6th December 2026",
+    day: "Sunday",
+    month: "December",
+    readings: [
+      reading("10AM", "1st Lesson", "Genesis 14:14–24", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "John 8:51–59", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Psalms 10:1–7", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-09",
+    date: "2026-12-09",
+    displayDate: "Wednesday 9th December 2026",
+    day: "Wednesday",
+    month: "December",
+    readings: [
+      reading("6PM", "1st Lesson", "Isaiah 8:5–13"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-11",
+    date: "2026-12-11",
+    displayDate: "Friday 11th December 2026",
+    day: "Friday",
+    month: "December",
+    readings: [
+      reading("6PM", "1st Lesson", "Deuteronomy 18:13–19"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-13",
+    date: "2026-12-13",
+    displayDate: "Sunday 13th December 2026",
+    day: "Sunday",
+    month: "December",
+    readings: [
+      reading("10AM", "1st Lesson", "Micah 5:1–9", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "Matthew 2:1–8", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Amos 9:8–15", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-16",
+    date: "2026-12-16",
+    displayDate: "Wednesday 16th December 2026",
+    day: "Wednesday",
+    month: "December",
+    readings: [
+      reading("6PM", "1st Lesson", "Jeremiah 31:31–38"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-18",
+    date: "2026-12-18",
+    displayDate: "Friday 18th December 2026",
+    day: "Friday",
+    month: "December",
+    special: "Special Week as Preparation for Christmas — 18th to 24th December",
+    readings: [
+      reading("6PM", "1st Lesson", "Isaiah 44:1–5"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-20",
+    date: "2026-12-20",
+    displayDate: "Sunday 20th December 2026",
+    day: "Sunday",
+    month: "December",
+    special: "Special Week as Preparation for Christmas",
+    readings: [
+      reading("10AM", "1st Lesson", "Isaiah 66:15–24", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "Revelation 3:1–6", "Sunday Morning"),
+      reading("12AM", "1st Lesson", "Acts 4:8–12", "Sunday Midnight Service"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-23",
+    date: "2026-12-23",
+    displayDate: "Wednesday 23rd December 2026",
+    day: "Wednesday",
+    month: "December",
+    special: "Special Week as Preparation for Christmas",
+    readings: [
+      reading("6PM", "1st Lesson", "Luke 1:26–38"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-24",
+    date: "2026-12-24",
+    displayDate: "Thursday 24th December 2026",
+    day: "Thursday",
+    month: "December",
+    special: "Christmas Eve",
+    readings: [
+      reading("10PM", "1st Lesson", "Isaiah 42:1–9", "Christmas Eve"),
+      reading("10PM", "2nd Lesson", "Romans 15:8–13", "Christmas Eve"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-25",
+    date: "2026-12-25",
+    displayDate: "Friday 25th December 2026",
+    day: "Friday",
+    month: "December",
+    special: "Christmas Day",
+    readings: [
+      reading("10AM", "1st Lesson", "Isaiah 11:1–9", "Christmas Day Morning"),
+      reading("10AM", "2nd Lesson", "Luke 2:1–20", "Christmas Day Morning"),
+      reading("7PM", "1st Lesson", "Isaiah 9:1–7", "Christmas Day Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-27",
+    date: "2026-12-27",
+    displayDate: "Sunday 27th December 2026",
+    day: "Sunday",
+    month: "December",
+    readings: [
+      reading("10AM", "1st Lesson", "Isaiah 25:1–10", "Sunday Morning"),
+      reading("10AM", "2nd Lesson", "1 John 2:7–17", "Sunday Morning"),
+      reading("7PM", "1st Lesson", "Matthew 1:1–17", "Sunday Evening"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-30",
+    date: "2026-12-30",
+    displayDate: "Wednesday 30th December 2026",
+    day: "Wednesday",
+    month: "December",
+    readings: [
+      reading("6PM", "1st Lesson", "1 Chronicles 17:16–27"),
+    ],
+  }),
+
+  makeLesson({
+    id: "DEC-31",
+    date: "2026-12-31",
+    displayDate: "Thursday 31st December 2026",
+    day: "Thursday",
+    month: "December",
+    special: "New Year's Eve",
+    readings: [
+      reading("10PM", "1st Lesson", "Isaiah 60:1–9", "New Year's Eve"),
+      reading("10PM", "2nd Lesson", "Ephesians 2:1–5", "New Year's Eve"),
+    ],
+  }),
+
 ];
 
 export default bibleLessons;
