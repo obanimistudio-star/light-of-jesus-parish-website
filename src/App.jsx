@@ -3484,14 +3484,14 @@ function App() {
             <p><strong>{programmes.mensVigil.day} · {programmes.mensVigil.time} (11:00 pm)</strong></p>
             <p>Using What God Has Given You · Anchor scripture: Exodus 4:2</p>
             <a
-              href={`${import.meta.env.BASE_URL}flyers/mens-vigil-2026-10-02.jpeg`}
+              href={`${import.meta.env.BASE_URL}flyers/mens-vigil-2026-10-02.jpeg?v=2`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open the full-size men's vigil programme for 2 October 2026"
             >
               <img
-                src={`${import.meta.env.BASE_URL}flyers/mens-vigil-2026-10-02.jpeg`}
-                alt="CCC The Light of Jesus Parish men's vigil programme: What Is in Your Hand? Using What God Has Given You. Friday 2 October 2026 at 23:00. Anchor scripture Exodus 4:2. Moderator Bro Dare; opening hymn 694; opening prayer Leader Temidayo; song ministration hymn 527 led by Leader Temidayo; Session 1 Prophet Olumide; prayer chain Evangelist Adefolalu; Session 2 VSE Shina Akomolafe, Shepherd-in-Charge; benediction Shepherd-in-Charge."
+                src={`${import.meta.env.BASE_URL}flyers/mens-vigil-2026-10-02.jpeg?v=2`}
+                alt="CCC The Light of Jesus Parish men's vigil programme: What Is in Your Hand? Using What God Has Given You. Friday 2 October 2026 at 23:00. Anchor scripture Exodus 4:2. Moderator Bro Dare; opening hymn 694; opening prayer Leader Temidayo; song ministration hymn 527 led by Leader Temidayo; Session 1 Stop Looking at What You Don’t Have, led by Prophet Olumide; prayer chain Evangelist Adefolalu; Session 2 VSE Shina Akomolafe, Shepherd-in-Charge; benediction Shepherd-in-Charge."
                 width="1024"
                 height="1536"
                 loading="lazy"
