@@ -3478,13 +3478,27 @@ function App() {
             </div>
           </div>
 
-          <div className="notice-card">
-            <div style={{ fontSize: "32px" }}>🌙</div>
-            <h2>Next Men&apos;s Vigil Programme</h2>
-            <p>
-              The next programme will be published here as soon as
-              the date, theme and speakers are confirmed.
-            </p>
+          <div className="programme-card" style={programmeCardStyle}>
+            <span className="small-badge">MEN&apos;S VIGIL PROGRAMME</span>
+            <h2>{programmes.mensVigil.theme}</h2>
+            <p><strong>{programmes.mensVigil.day} · {programmes.mensVigil.time} (11:00 pm)</strong></p>
+            <p>Using What God Has Given You · Anchor scripture: Exodus 4:2</p>
+            <a
+              href={`${import.meta.env.BASE_URL}flyers/mens-vigil-2026-10-02.jpeg`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the full-size men's vigil programme for 2 October 2026"
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}flyers/mens-vigil-2026-10-02.jpeg`}
+                alt="CCC The Light of Jesus Parish men's vigil programme: What Is in Your Hand? Using What God Has Given You. Friday 2 October 2026 at 23:00. Anchor scripture Exodus 4:2. Moderator Bro Dare; opening hymn 694; opening prayer Leader Temidayo; song ministration hymn 527 led by Leader Temidayo; Session 1 Prophet Olumide; prayer chain Evangelist Adefolalu; Session 2 VSE Shina Akomolafe, Shepherd-in-Charge; benediction Shepherd-in-Charge."
+                width="1024"
+                height="1536"
+                loading="lazy"
+                style={{ display: "block", width: "100%", maxWidth: "850px", height: "auto", margin: "20px auto", borderRadius: "16px" }}
+              />
+              Open full-size flyer
+            </a>
           </div>
         </section>
 

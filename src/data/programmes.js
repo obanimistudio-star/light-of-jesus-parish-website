@@ -10,13 +10,13 @@ const programmes = {
   },
 
   mensVigil: {
-    title: "Next Men’s Vigil Programme",
-    day: "",
-    time: "",
-    theme: "",
-    bibleText: "",
-    speaker: "",
-    details: "",
+    title: "CCC The Light of Jesus Parish Men’s Vigil",
+    day: "Friday, 2 October 2026",
+    time: "23:00",
+    theme: "What Is in Your Hand?",
+    bibleText: "Exodus 4:2",
+    speaker: "Prophet Olumide and VSE Shina Akomolafe (Shepherd-in-Charge)",
+    details: "Using What God Has Given You",
     orderOfProgramme: [],
   },
 
