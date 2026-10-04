@@ -56,7 +56,7 @@ function App() {
   const [hymnCategory, setHymnCategory] = useState("All");
   const [selectedHymn, setSelectedHymn] = useState(null);
   const [hymnFontSize, setHymnFontSize] = useState(18);
-  const [hymnVisibleCount, setHymnVisibleCount] = useState(40);
+  const [hymnPickerOpen, setHymnPickerOpen] = useState(false);
 
   // =========================
   // BIBLE LESSONS
@@ -104,6 +104,10 @@ function App() {
   // =========================
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId);
+    if (sectionId === "hymns") {
+      setHymnPickerOpen(true);
+      setSelectedHymn(null);
+    }
 
     if (sectionId === "lessons") {
       setSelectedLesson(null);
@@ -185,16 +189,13 @@ function App() {
     ...new Set(hymns.map((hymn) => hymn.category)),
   ];
 
-  useEffect(() => {
-    setHymnVisibleCount(40);
-  }, [hymnSearch, hymnCategory]);
-
   const filteredHymns = hymns.filter((hymn) => {
     const search = hymnSearch.trim().toLowerCase();
 
     const matchesSearch =
-      String(hymn.number).toLowerCase().includes(search) ||
-      String(hymn.title).toLowerCase().includes(search);
+      (/^\d+$/.test(search)
+        ? Number(hymn.number) === Number(search)
+        : String(hymn.title).toLowerCase().includes(search));
 
     const matchesCategory =
       hymnCategory === "All" ||
@@ -2801,7 +2802,9 @@ function App() {
             in English and Yoruba.
           </p>
 
-          {selectedHymn ? (
+          {!hymnPickerOpen ? (
+            <button style={buttonStyle} onClick={() => setHymnPickerOpen(true)}>🎼 Choose a hymn</button>
+          ) : selectedHymn ? (
             <div className="hymn-reader">
               <div className="reader-toolbar">
                 <button
@@ -2810,7 +2813,7 @@ function App() {
                     setSelectedHymn(null)
                   }
                 >
-                  ← Back to Hymns
+                  ← Back to search
                 </button>
 
                 <div className="font-controls">
@@ -2902,6 +2905,7 @@ function App() {
                 <button
                   style={secondaryButtonStyle}
                   onClick={openPreviousHymn}
+                  disabled={hymns[0]?.number === selectedHymn.number}
                 >
                   ← Previous
                 </button>
@@ -2909,6 +2913,7 @@ function App() {
                 <button
                   style={buttonStyle}
                   onClick={openNextHymn}
+                  disabled={hymns[hymns.length - 1]?.number === selectedHymn.number}
                 >
                   Next →
                 </button>
@@ -2920,6 +2925,7 @@ function App() {
                 <input
                   type="text"
                   placeholder="Search hymn number or title..."
+                  aria-label="Search hymn number or title"
                   value={hymnSearch}
                   onChange={(e) =>
                     setHymnSearch(e.target.value)
@@ -2947,7 +2953,7 @@ function App() {
                 </select>
               </div>
 
-              {filteredHymns.slice(0, hymnVisibleCount).map((hymn) => (
+              {(hymnSearch.trim() ? filteredHymns.slice(0, 20) : []).map((hymn) => (
                 <div
                   key={hymn.number}
                   className="list-card"
@@ -2975,26 +2981,19 @@ function App() {
                 </div>
               ))}
 
-              {filteredHymns.length === 0 ? (
+              {!hymnSearch.trim() ? (
+                <p className="section-intro">Enter a hymn number or title to choose a hymn.</p>
+              ) : filteredHymns.length === 0 ? (
                 <p className="section-intro">
                   No hymns match your search.
                 </p>
               ) : (
                 <p className="section-intro">
-                  Showing {Math.min(hymnVisibleCount, filteredHymns.length)} of {filteredHymns.length} hymns.
+                  Showing {Math.min(20, filteredHymns.length)} of {filteredHymns.length} matches. Refine your search if needed.
                 </p>
               )}
 
-              {filteredHymns.length > hymnVisibleCount && (
-                <button
-                  style={buttonStyle}
-                  onClick={() =>
-                    setHymnVisibleCount((count) => count + 40)
-                  }
-                >
-                  Load 40 more hymns
-                </button>
-              )}
+              <button style={secondaryButtonStyle} onClick={() => setHymnPickerOpen(false)}>Close hymn selector</button>
             </>
           )}
         </section>
