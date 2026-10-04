@@ -190,19 +190,18 @@ function App() {
     ...new Set(hymns.map((hymn) => hymn.category)),
   ];
 
+  const normalizeHymnSearch = (value) => String(value ?? "")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().replace(/['’‘]/g, "").replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ").trim();
+
   const filteredHymns = hymns.filter((hymn) => {
-    const search = hymnSearch.trim().toLowerCase();
-
-    const matchesSearch =
-      (/^\d+$/.test(search)
-        ? Number(hymn.number) === Number(search)
-        : `${hymn.title} ${hymn.category} ${hymn.lyrics}`.toLowerCase().includes(search));
-
-    const matchesCategory =
-      hymnCategory === "All" ||
-      hymn.category === hymnCategory;
-
-    return matchesSearch && matchesCategory;
+    const search = normalizeHymnSearch(hymnSearch);
+    const text = normalizeHymnSearch(`${hymn.title} ${hymn.category} ${hymn.lyrics}`);
+    const matchesSearch = /^\d+$/.test(search)
+      ? Number(hymn.number) === Number(search)
+      : search.split(" ").every((word) => text.includes(word));
+    return matchesSearch && (hymnCategory === "All" || hymn.category === hymnCategory);
   });
 
   const openPreviousHymn = () => {
@@ -2804,7 +2803,7 @@ function App() {
           </p>
 
           {!hymnPickerOpen ? (
-            <button style={buttonStyle} onClick={() => setHymnPickerOpen(true)}>🎼 Choose a hymn</button>
+            <button style={buttonStyle} onClick={() => setHymnPickerOpen(true)}>🎼 All hymns — choose a hymn</button>
           ) : selectedHymn ? (
             <div className="hymn-reader">
               <div className="reader-toolbar">
@@ -2925,8 +2924,8 @@ function App() {
               <div className="search-row">
                 <input
                   type="text"
-                  placeholder="Search hymn number or title..."
-                  aria-label="Search hymn number or title"
+                  placeholder="Search hymn number, English or Yoruba lyrics..."
+                  aria-label="Search hymn number, English or Yoruba lyrics"
                   value={hymnSearch}
                   onChange={(e) =>
                     setHymnSearch(e.target.value)
