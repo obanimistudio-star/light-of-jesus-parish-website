@@ -57,6 +57,7 @@ function App() {
   const [selectedHymn, setSelectedHymn] = useState(null);
   const [hymnFontSize, setHymnFontSize] = useState(18);
   const [hymnPickerOpen, setHymnPickerOpen] = useState(false);
+  const [hymnVisibleCount, setHymnVisibleCount] = useState(40);
 
   // =========================
   // BIBLE LESSONS
@@ -2953,7 +2954,7 @@ function App() {
                 </select>
               </div>
 
-              {(hymnSearch.trim() ? filteredHymns.slice(0, 20) : []).map((hymn) => (
+              {filteredHymns.slice(0, hymnSearch.trim() ? 20 : hymnVisibleCount).map((hymn) => (
                 <div
                   key={hymn.number}
                   className="list-card"
@@ -2982,7 +2983,7 @@ function App() {
               ))}
 
               {!hymnSearch.trim() ? (
-                <p className="section-intro">Enter a hymn number or title to choose a hymn.</p>
+                <p className="section-intro">Showing {Math.min(hymnVisibleCount, filteredHymns.length)} of {filteredHymns.length} hymns. Search by number, English title or Yoruba lyrics.</p>
               ) : filteredHymns.length === 0 ? (
                 <p className="section-intro">
                   No hymns match your search.
@@ -2993,7 +2994,7 @@ function App() {
                 </p>
               )}
 
-              <button style={secondaryButtonStyle} onClick={() => setHymnPickerOpen(false)}>Close hymn selector</button>
+              {!hymnSearch.trim() && filteredHymns.length > hymnVisibleCount && <button style={buttonStyle} onClick={() => setHymnVisibleCount((count) => count + 40)}>Load 40 more hymns</button>}\n              <button style={secondaryButtonStyle} onClick={() => setHymnPickerOpen(false)}>Close hymn selector</button>
             </>
           )}
         </section>
