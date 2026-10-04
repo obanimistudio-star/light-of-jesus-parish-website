@@ -2993,7 +2993,8 @@ function App() {
                 </p>
               )}
 
-              {!hymnSearch.trim() && filteredHymns.length > hymnVisibleCount && <button style={buttonStyle} onClick={() => setHymnVisibleCount((count) => count + 40)}>Load 40 more hymns</button>}\n              <button style={secondaryButtonStyle} onClick={() => setHymnPickerOpen(false)}>Close hymn selector</button>
+              {!hymnSearch.trim() && filteredHymns.length > hymnVisibleCount && <button style={buttonStyle} onClick={() => setHymnVisibleCount((count) => count + 40)}>Load 40 more hymns</button>}
+              <button style={secondaryButtonStyle} onClick={() => setHymnPickerOpen(false)}>Close hymn selector</button>
             </>
           )}
         </section>
