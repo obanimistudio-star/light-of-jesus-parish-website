@@ -195,7 +195,7 @@ function App() {
     const matchesSearch =
       (/^\d+$/.test(search)
         ? Number(hymn.number) === Number(search)
-        : String(hymn.title).toLowerCase().includes(search));
+        : `${hymn.title} ${hymn.category} ${hymn.lyrics}`.toLowerCase().includes(search));
 
     const matchesCategory =
       hymnCategory === "All" ||
