@@ -56,6 +56,7 @@ function App() {
   const [hymnCategory, setHymnCategory] = useState("All");
   const [selectedHymn, setSelectedHymn] = useState(null);
   const [hymnFontSize, setHymnFontSize] = useState(18);
+  const [hymnVisibleCount, setHymnVisibleCount] = useState(40);
 
   // =========================
   // BIBLE LESSONS
@@ -136,7 +137,7 @@ function App() {
 
   const copyRehearsalWebsiteLink = async () => {
     const rehearsalPageLink =
-      "https://obanimistudio-star.github.io/light-of-jesus-parish-website/#meeting";
+      "https://church.obanimistudio.com/#meeting";
 
     try {
       await navigator.clipboard.writeText(rehearsalPageLink);
@@ -148,7 +149,7 @@ function App() {
 
   const copyParishPlatformsLink = async () => {
     const platformsLink =
-      "https://obanimistudio-star.github.io/light-of-jesus-parish-website/#platforms";
+      "https://church.obanimistudio.com/#platforms";
 
     try {
       await navigator.clipboard.writeText(platformsLink);
@@ -183,6 +184,10 @@ function App() {
     "All",
     ...new Set(hymns.map((hymn) => hymn.category)),
   ];
+
+  useEffect(() => {
+    setHymnVisibleCount(40);
+  }, [hymnSearch, hymnCategory]);
 
   const filteredHymns = hymns.filter((hymn) => {
     const search = hymnSearch.trim().toLowerCase();
@@ -2942,7 +2947,7 @@ function App() {
                 </select>
               </div>
 
-              {filteredHymns.map((hymn) => (
+              {filteredHymns.slice(0, hymnVisibleCount).map((hymn) => (
                 <div
                   key={hymn.number}
                   className="list-card"
@@ -2969,6 +2974,27 @@ function App() {
                   </button>
                 </div>
               ))}
+
+              {filteredHymns.length === 0 ? (
+                <p className="section-intro">
+                  No hymns match your search.
+                </p>
+              ) : (
+                <p className="section-intro">
+                  Showing {Math.min(hymnVisibleCount, filteredHymns.length)} of {filteredHymns.length} hymns.
+                </p>
+              )}
+
+              {filteredHymns.length > hymnVisibleCount && (
+                <button
+                  style={buttonStyle}
+                  onClick={() =>
+                    setHymnVisibleCount((count) => count + 40)
+                  }
+                >
+                  Load 40 more hymns
+                </button>
+              )}
             </>
           )}
         </section>
