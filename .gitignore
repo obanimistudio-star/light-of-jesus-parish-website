@@ -1,0 +1,40 @@
+# ObanimiStudio security: never commit local secrets or private client records
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa
+id_ed25519
+*.credentials.json
+credentials.json
+secrets.json
+service-account*.json
+
+# Local development and generated files
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.tmp/
+temp/
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.backup
+*.old
+*.swp
+*.swo
+
+# Private workspace material (keep outside public repositories)
+private/
+internal/
+confidential/
+client-private/
+invoices/
+contracts/
