@@ -7,6 +7,13 @@ import choirUpdates from "./data/choirUpdates";
 import events from "./data/events";
 import programmes from "./data/programmes";
 
+// Add parish-approved content here when the photographs and messages are supplied.
+// Gallery entries: { id, src, alt, caption }. Use published image paths, not device-local files.
+const parishGallery = [];
+const parishWelcomeAddress = [];
+const shepherdMessages = [];
+const shepherdPortrait = null;
+
 const getClosestLessonMonth = () => {
   const monthName = new Intl.DateTimeFormat("en-GB", {
     month: "long",
@@ -2374,6 +2381,35 @@ function App() {
             grid-template-columns: 1fr;
           }
         }
+        .parish-content-card {
+          background: #fff;
+          color: #282330;
+          border: 1px solid #e6deed;
+          border-radius: 25px;
+          padding: clamp(22px, 4vw, 36px);
+          box-shadow: 0 10px 28px rgba(69, 47, 91, .06);
+          text-align: left;
+          overflow-wrap: anywhere;
+        }
+        .parish-content-card .small-overline { color: #79591b; }
+        .parish-content-card h2 { color: #3f1d73; margin: 12px 0 16px; }
+        .parish-content-card h3 { color: #3f1d73; }
+        .parish-content-card p { color: #51485d; line-height: 1.75; }
+        .parish-content-pending { padding: 18px; background: #f8f5fc; border-radius: 14px; }
+        .parish-content-intro { margin-bottom: 24px; }
+        .parish-message-copy p + p { margin-top: 16px; }
+        .parish-message-copy + .parish-message-copy { margin-top: 24px; }
+        .shepherd-profile { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+        .shepherd-profile strong { color: #3f1d73; }
+        .shepherd-portrait { width: 150px; height: 180px; object-fit: cover; border-radius: 18px; }
+        .parish-gallery-empty { text-align: center; padding: 28px 18px; border: 1px dashed #c9badb; border-radius: 18px; background: #f8f5fc; }
+        .parish-gallery-empty > span { display: block; font-size: 40px; margin-bottom: 16px; }
+        .parish-gallery-empty h3 { margin-bottom: 12px; }
+        .parish-photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 22px; }
+        .parish-photo-grid figure { margin: 0; }
+        .parish-photo-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; }
+        .parish-photo-grid figcaption { margin-top: 10px; line-height: 1.6; }
+        .parish-photo-grid a:focus-visible { outline: 3px solid #68449a; outline-offset: 5px; border-radius: 16px; }
       `}</style>
 
       <header className="parish-visual-header">
@@ -2417,6 +2453,9 @@ function App() {
       <nav className="nav-bar">
         {[
           ["home", "🏠", "Home"],
+          ["welcome-address", "👋", "Welcome Address"],
+          ["shepherds-corner", "✝️", "Shepherd’s Corner"],
+          ["gallery", "🖼️", "Gallery"],
           ["meeting", "🎤", "Choir"],
           ["hymns", "🎼", "Hymns"],
           ["lessons", "📖", "Bible Lessons"],
@@ -2693,6 +2732,67 @@ function App() {
                 </button>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="welcome-address" className="section" aria-labelledby="welcome-address-heading">
+          <div className="parish-content-card">
+            <span className="small-overline">A WARM WELCOME</span>
+            <h2 id="welcome-address-heading">Welcome Address</h2>
+            {parishWelcomeAddress.length > 0 ? (
+              <div className="parish-message-copy">
+                {parishWelcomeAddress.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+              </div>
+            ) : (
+              <p className="parish-content-pending">Our parish welcome address will be shared here soon.</p>
+            )}
+          </div>
+        </section>
+
+        <section id="shepherds-corner" className="section" aria-labelledby="shepherds-corner-heading">
+          <div className="parish-content-card">
+            <span className="small-overline">FROM OUR SHEPHERD</span>
+            <h2 id="shepherds-corner-heading">Shepherd’s Corner</h2>
+            <div className="shepherd-profile">
+              {shepherdPortrait && <img src={shepherdPortrait} alt="VSE Shina Akomolafe, Shepherd in Charge" className="shepherd-portrait" />}
+              <p><strong>VSE Shina Akomolafe</strong><br />Shepherd in Charge</p>
+            </div>
+            {shepherdMessages.length > 0 ? (
+              shepherdMessages.map((message) => (
+                <article key={message.id} className="parish-message-copy">
+                  <h3>{message.title}</h3>
+                  {message.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                </article>
+              ))
+            ) : (
+              <p className="parish-content-pending">Messages and reflections from our Shepherd will be shared here soon.</p>
+            )}
+          </div>
+        </section>
+
+        <section id="gallery" className="section" aria-labelledby="gallery-heading">
+          <div className="parish-content-card">
+            <span className="small-overline">OUR PARISH IN PICTURES</span>
+            <h2 id="gallery-heading">Parish Gallery</h2>
+            <p className="parish-content-intro">Celebrating worship, fellowship and special moments in our parish family.</p>
+            {parishGallery.length > 0 ? (
+              <div className="parish-photo-grid">
+                {parishGallery.map((photo) => (
+                  <figure key={photo.id}>
+                    <a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`Open photograph: ${photo.alt} (new tab)`}>
+                      <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" width="640" height="480" />
+                    </a>
+                    {photo.caption && <figcaption>{photo.caption}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            ) : (
+              <div className="parish-gallery-empty">
+                <span aria-hidden="true">🖼️</span>
+                <h3>Parish photographs coming soon</h3>
+                <p>Visit again to see photographs from our parish activities and celebrations.</p>
+              </div>
+            )}
           </div>
         </section>
 
