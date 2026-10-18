@@ -11,7 +11,6 @@ import programmes from "./data/programmes";
 // Gallery entries: { id, src, alt, caption }. Use published image paths, not device-local files.
 const parishGallery = [];
 const parishWelcomeAddress = [];
-const shepherdMessages = [];
 const shepherdPortrait = null;
 
 const getClosestLessonMonth = () => {
@@ -2399,9 +2398,15 @@ function App() {
         .parish-content-intro { margin-bottom: 24px; }
         .parish-message-copy p + p { margin-top: 16px; }
         .parish-message-copy + .parish-message-copy { margin-top: 24px; }
-        .shepherd-profile { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
-        .shepherd-profile strong { color: #3f1d73; }
-        .shepherd-portrait { width: 150px; height: 180px; object-fit: cover; border-radius: 18px; }
+        .shepherd-welcome { margin: 0 auto 36px; padding: 0; text-align: center; }
+        .shepherd-welcome-portrait { margin: 0 auto 20px; }
+        .shepherd-welcome-portrait img,
+        .shepherd-portrait-frame { width: min(220px, 100%); aspect-ratio: 4 / 5; margin: 0 auto; border: 3px solid #c59b39; border-radius: 18px; object-fit: cover; display: block; }
+        .shepherd-portrait-frame { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #f8f5fc; color: #51485d; font-size: 15px; line-height: 1.6; }
+        .shepherd-portrait-frame > span:first-child { font-size: 42px; color: #79591b; }
+        .shepherd-welcome-portrait figcaption { margin-top: 16px; line-height: 1.7; }
+        .shepherd-welcome-message { max-width: 740px; margin: 0 auto; line-height: 1.8; white-space: pre-line; }
+        .shepherd-welcome-message p + p { margin-top: 16px; }
         .parish-gallery-empty { text-align: center; padding: 28px 18px; border: 1px dashed #c9badb; border-radius: 18px; background: #f8f5fc; }
         .parish-gallery-empty > span { display: block; font-size: 40px; margin-bottom: 16px; }
         .parish-gallery-empty h3 { margin-bottom: 12px; }
@@ -2453,8 +2458,6 @@ function App() {
       <nav className="nav-bar">
         {[
           ["home", "🏠", "Home"],
-          ["welcome-address", "👋", "Welcome Address"],
-          ["shepherds-corner", "✝️", "Shepherd’s Corner"],
           ["gallery", "🖼️", "Gallery"],
           ["meeting", "🎤", "Choir"],
           ["hymns", "🎼", "Hymns"],
@@ -2485,6 +2488,26 @@ function App() {
       <main className="main-shell">
         <section id="home" className="section">
           <div className="hero-panel">
+            <div className="shepherd-welcome" aria-label="Welcome from our Shepherd">
+              <figure className="shepherd-welcome-portrait">
+                {shepherdPortrait ? (
+                  <img src={shepherdPortrait} alt="VSE Shina Akomolafe, Shepherd in Charge" />
+                ) : (
+                  <div className="shepherd-portrait-frame" role="img" aria-label="Space reserved for the Shepherd’s photograph">
+                    <span aria-hidden="true">♰</span>
+                    <span>Shepherd’s photograph<br />coming soon</span>
+                  </div>
+                )}
+                <figcaption><strong>VSE Shina Akomolafe</strong><br />Shepherd in Charge</figcaption>
+              </figure>
+              {parishWelcomeAddress.length > 0 ? (
+                <div className="shepherd-welcome-message">
+                  {parishWelcomeAddress.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                </div>
+              ) : (
+                <p className="shepherd-welcome-message">A welcome message from our Shepherd will be shared here soon.</p>
+              )}
+            </div>
             <div className="parish-welcome">
               <div>
                 <h1>Welcome to The Light of Jesus Parish</h1>
@@ -2732,41 +2755,6 @@ function App() {
                 </button>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="welcome-address" className="section" aria-labelledby="welcome-address-heading">
-          <div className="parish-content-card">
-            <span className="small-overline">A WARM WELCOME</span>
-            <h2 id="welcome-address-heading">Welcome Address</h2>
-            {parishWelcomeAddress.length > 0 ? (
-              <div className="parish-message-copy">
-                {parishWelcomeAddress.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-              </div>
-            ) : (
-              <p className="parish-content-pending">Our parish welcome address will be shared here soon.</p>
-            )}
-          </div>
-        </section>
-
-        <section id="shepherds-corner" className="section" aria-labelledby="shepherds-corner-heading">
-          <div className="parish-content-card">
-            <span className="small-overline">FROM OUR SHEPHERD</span>
-            <h2 id="shepherds-corner-heading">Shepherd’s Corner</h2>
-            <div className="shepherd-profile">
-              {shepherdPortrait && <img src={shepherdPortrait} alt="VSE Shina Akomolafe, Shepherd in Charge" className="shepherd-portrait" />}
-              <p><strong>VSE Shina Akomolafe</strong><br />Shepherd in Charge</p>
-            </div>
-            {shepherdMessages.length > 0 ? (
-              shepherdMessages.map((message) => (
-                <article key={message.id} className="parish-message-copy">
-                  <h3>{message.title}</h3>
-                  {message.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-                </article>
-              ))
-            ) : (
-              <p className="parish-content-pending">Messages and reflections from our Shepherd will be shared here soon.</p>
-            )}
           </div>
         </section>
 
